@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -100,7 +99,6 @@ const statusIcons: Record<Inquiry["status"], React.ReactNode> = {
 const Loading = () => null;
 
 export default function AdminInquiriesPage() {
-  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [inquiries, setInquiries] = useState(mockInquiries);
