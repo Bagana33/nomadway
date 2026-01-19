@@ -3,33 +3,33 @@ import { Shield, Users, MapPin, Headphones, Award, Heart } from "lucide-react"
 const features = [
   {
     icon: MapPin,
-    title: "Local Expertise",
-    description: "Our guides are born and raised in Mongolia, offering authentic insights you won't find anywhere else."
+    title: "Орон нутгийн мэдлэг",
+    description: "Манай хөтөч нар Монголд төрж өссөн тул хаанаас ч олдохгүй бодит туршлагыг өгнө."
   },
   {
     icon: Users,
-    title: "Small Groups",
-    description: "We keep groups intimate (max 12) for a more personal and immersive travel experience."
+    title: "Жижиг бүлэг",
+    description: "Илүү ойр, гүнзгий туршлага өгөхийн тулд бүлгийг бага (дээд 12) байлгана."
   },
   {
     icon: Shield,
-    title: "Safety First",
-    description: "Comprehensive travel insurance, experienced drivers, and 24/7 support throughout your journey."
+    title: "Аюулгүй байдал нэн тэргүүнд",
+    description: "Бүрэн даатгал, туршлагатай жолооч, аяллын турш 24/7 дэмжлэг."
   },
   {
     icon: Heart,
-    title: "Sustainable Travel",
-    description: "We support local communities and practice responsible tourism to protect Mongolia's wilderness."
+    title: "Тогтвортой аялал",
+    description: "Орон нутгийн хамт олныг дэмжиж, байгальд ээлтэй аяллыг эрхэмлэнэ."
   },
   {
     icon: Award,
-    title: "Award Winning",
-    description: "Recognized for excellence in adventure travel by international tourism organizations."
+    title: "Шагналт үйлчилгээ",
+    description: "Олон улсын байгууллагуудаас адал явдалт аяллын шилдгээр үнэлэгдсэн."
   },
   {
     icon: Headphones,
-    title: "24/7 Support",
-    description: "Our team is always available to assist you, from booking to the end of your adventure."
+    title: "24/7 дэмжлэг",
+    description: "Захиалгаас аяллын төгсгөл хүртэл бид үргэлж тусална."
   }
 ]
 
@@ -40,13 +40,13 @@ export function WhyChooseUs() {
         {/* Section Header */}
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-accent">
-            Why NomadWay
+            Яагаад NomadWay гэж
           </span>
           <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-            Travel with Confidence
+            Итгэлтэйгээр аялаарай
           </h2>
           <p className="mt-3 text-muted-foreground">
-            We&apos;re more than just a travel company. We&apos;re your gateway to authentic Mongolian experiences.
+            Бид зөвхөн аяллын компани биш. Бид Монголын жинхэнэ туршлагын таны гарц.
           </p>
         </div>
 

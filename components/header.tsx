@@ -10,11 +10,11 @@ import { Menu, Moon, Sun, Mountain } from "lucide-react"
 import { useTheme } from "next-themes"
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Tours", href: "/tours" },
-  { name: "About", href: "/about" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Contact", href: "/contact" },
+  { name: "Нүүр", href: "/" },
+  { name: "Аяллууд", href: "/tours" },
+  { name: "Бидний тухай", href: "/about" },
+  { name: "Асуулт хариулт", href: "/faq" },
+  { name: "Холбоо барих", href: "/contact" },
 ]
 
 export function Header() {
@@ -37,7 +37,7 @@ export function Header() {
           </div>
           <div className="flex flex-col">
             <span className="text-lg font-bold leading-none text-foreground">NomadWay</span>
-            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Travel</span>
+            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Аялал</span>
           </div>
         </Link>
 
@@ -74,13 +74,13 @@ export function Header() {
               ) : (
                 <Moon className="h-4 w-4" />
               )}
-              <span className="sr-only">Toggle theme</span>
+              <span className="sr-only">Өнгөний горим солих</span>
             </Button>
           )}
 
-          {/* Book Now Button */}
+        {/* Book Now Button */}
           <Button asChild className="hidden bg-accent text-accent-foreground hover:bg-accent/90 sm:flex">
-            <Link href="/tours">Book Now</Link>
+          <Link href="/tours">Одоо захиалах</Link>
           </Button>
 
           {/* Mobile Menu */}
@@ -88,7 +88,7 @@ export function Header() {
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon" className="h-9 w-9">
                 <Menu className="h-5 w-5" />
-                <span className="sr-only">Open menu</span>
+                <span className="sr-only">Цэс нээх</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px]">
@@ -97,7 +97,7 @@ export function Header() {
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
                     <Mountain className="h-4 w-4 text-primary-foreground" />
                   </div>
-                  <span className="text-lg font-bold">NomadWay Travel</span>
+                  <span className="text-lg font-bold">NomadWay Аялал</span>
                 </Link>
                 <nav className="flex flex-col gap-1 pt-4">
                   {navigation.map((item) => (
@@ -117,7 +117,7 @@ export function Header() {
                   ))}
                 </nav>
                 <Button asChild className="mt-4 bg-accent text-accent-foreground hover:bg-accent/90">
-                  <Link href="/tours" onClick={() => setIsOpen(false)}>Book Now</Link>
+                  <Link href="/tours" onClick={() => setIsOpen(false)}>Одоо захиалах</Link>
                 </Button>
               </div>
             </SheetContent>

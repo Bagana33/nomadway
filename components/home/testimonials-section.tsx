@@ -23,10 +23,10 @@ export function TestimonialsSection() {
         {/* Section Header */}
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-primary-foreground/70">
-            Testimonials
+            Сэтгэгдлүүд
           </span>
           <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">
-            What Our Travelers Say
+            Аялагчдын маань сэтгэгдэл
           </h2>
         </div>
 
@@ -71,7 +71,7 @@ export function TestimonialsSection() {
                     className="h-10 w-10 border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
                   >
                     <ChevronLeft className="h-4 w-4" />
-                    <span className="sr-only">Previous testimonial</span>
+                    <span className="sr-only">Өмнөх сэтгэгдэл</span>
                   </Button>
                   <Button
                     variant="outline"
@@ -80,7 +80,7 @@ export function TestimonialsSection() {
                     className="h-10 w-10 border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
                   >
                     <ChevronRight className="h-4 w-4" />
-                    <span className="sr-only">Next testimonial</span>
+                    <span className="sr-only">Дараагийн сэтгэгдэл</span>
                   </Button>
                 </div>
               </div>
@@ -99,7 +99,7 @@ export function TestimonialsSection() {
                     : "w-2 bg-primary-foreground/30 hover:bg-primary-foreground/50"
                 }`}
               >
-                <span className="sr-only">Go to testimonial {index + 1}</span>
+                <span className="sr-only">Сэтгэгдэл {index + 1} рүү очих</span>
               </button>
             ))}
           </div>

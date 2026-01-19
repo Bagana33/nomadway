@@ -48,8 +48,8 @@ const mockInquiries: Inquiry[] = [
     id: "inq-001",
     name: "John Smith",
     email: "john.smith@email.com",
-    subject: "Question about Gobi Desert Tour",
-    message: "Hi, I'm interested in the Gobi Desert Expedition tour. Can you tell me more about the accommodations during the trip? Are the ger camps comfortable? Also, what's the best time of year to visit?",
+    subject: "Говь цөлийн аяллын тухай асуулт",
+    message: "Сайн байна уу? Би Говь цөлийн аяллыг сонирхож байна. Аяллын үеийн байрлах нөхцөл ямар вэ? Гэр баазууд тухтай юу? Мөн хамгийн тохиромжтой улирал нь хэзээ вэ?",
     status: "new",
     createdAt: "2025-01-18T10:30:00Z",
   },
@@ -57,8 +57,8 @@ const mockInquiries: Inquiry[] = [
     id: "inq-002",
     name: "Sarah Johnson",
     email: "sarah.j@email.com",
-    subject: "Group booking inquiry",
-    message: "We're a group of 8 friends planning to visit Mongolia in July. Do you offer group discounts? We're particularly interested in the Nomadic Life Experience tour.",
+    subject: "Бүлгийн захиалгын асуулт",
+    message: "Бид 7 сард 8 найзтайгаа Монголд ирэхээр төлөвлөж байна. Бүлгийн хөнгөлөлт байдаг уу? Ялангуяа нүүдэлчдийн амьдралын аялал сонирхож байна.",
     status: "replied",
     createdAt: "2025-01-17T14:20:00Z",
   },
@@ -66,8 +66,8 @@ const mockInquiries: Inquiry[] = [
     id: "inq-003",
     name: "Michael Chen",
     email: "m.chen@email.com",
-    subject: "Vegetarian food options",
-    message: "I'm a vegetarian and wondering if you can accommodate dietary restrictions during the tours. Please let me know what options are available.",
+    subject: "Цагаан хоолны сонголт",
+    message: "Би цагаан хоолтон. Аяллын үед хоолны онцгой шаардлага хангах боломжтой юу? Ямар сонголтууд байдаг талаар мэдээлэл өгнө үү.",
     status: "read",
     createdAt: "2025-01-16T09:15:00Z",
   },
@@ -75,8 +75,8 @@ const mockInquiries: Inquiry[] = [
     id: "inq-004",
     name: "Emma Wilson",
     email: "emma.w@email.com",
-    subject: "Photography equipment",
-    message: "I'm a professional photographer. Can I bring my tripod and drone on the tours? Are there any restrictions?",
+    subject: "Зураг авалтын тоног төхөөрөмж",
+    message: "Би мэргэжлийн гэрэл зурагчин. Аяллын үеэр штатив, дрон авчрах боломжтой юу? Ямар нэг хязгаарлалт бий юу?",
     status: "archived",
     createdAt: "2025-01-15T16:45:00Z",
   },
@@ -94,6 +94,13 @@ const statusIcons: Record<Inquiry["status"], React.ReactNode> = {
   read: <Eye className="h-3 w-3" />,
   replied: <CheckCircle className="h-3 w-3" />,
   archived: <Archive className="h-3 w-3" />,
+};
+
+const statusLabels: Record<Inquiry["status"], string> = {
+  new: "Шинэ",
+  read: "Уншсан",
+  replied: "Хариулсан",
+  archived: "Архивласан",
 };
 
 const Loading = () => null;
@@ -127,24 +134,24 @@ export default function AdminInquiriesPage() {
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">
-            Inquiries
+            Лавлагаанууд
             {newCount > 0 && (
-              <Badge className="ml-2 bg-blue-600">{newCount} new</Badge>
+              <Badge className="ml-2 bg-blue-600">{newCount} шинэ</Badge>
             )}
           </h1>
-          <p className="text-muted-foreground">Manage customer inquiries and messages</p>
+          <p className="text-muted-foreground">Захиалагчдын лавлагаа, зурвасыг удирдах</p>
         </div>
 
         <Card>
           <CardHeader>
-            <CardTitle>All Inquiries</CardTitle>
+            <CardTitle>Бүх лавлагаа</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="mb-6 flex flex-col gap-4 sm:flex-row">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
-                  placeholder="Search by name, email, or subject..."
+                  placeholder="Нэр, и-мэйл эсвэл сэдвээр хайх..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-9"
@@ -152,14 +159,14 @@ export default function AdminInquiriesPage() {
               </div>
               <Select value={statusFilter} onValueChange={setStatusFilter}>
                 <SelectTrigger className="w-full sm:w-[180px]">
-                  <SelectValue placeholder="Filter by status" />
+                  <SelectValue placeholder="Төлөвөөр шүүх" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Statuses</SelectItem>
-                  <SelectItem value="new">New</SelectItem>
-                  <SelectItem value="read">Read</SelectItem>
-                  <SelectItem value="replied">Replied</SelectItem>
-                  <SelectItem value="archived">Archived</SelectItem>
+                  <SelectItem value="all">Бүх төлөв</SelectItem>
+                  <SelectItem value="new">Шинэ</SelectItem>
+                  <SelectItem value="read">Уншсан</SelectItem>
+                  <SelectItem value="replied">Хариулсан</SelectItem>
+                  <SelectItem value="archived">Архивласан</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -168,18 +175,18 @@ export default function AdminInquiriesPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>From</TableHead>
-                    <TableHead className="hidden md:table-cell">Subject</TableHead>
-                    <TableHead className="hidden sm:table-cell">Date</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
+                    <TableHead>Хэнээс</TableHead>
+                    <TableHead className="hidden md:table-cell">Сэдэв</TableHead>
+                    <TableHead className="hidden sm:table-cell">Огноо</TableHead>
+                    <TableHead>Төлөв</TableHead>
+                    <TableHead className="text-right">Үйлдэл</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredInquiries.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
-                        No inquiries found
+                        Лавлагаа олдсонгүй
                       </TableCell>
                     </TableRow>
                   ) : (
@@ -205,7 +212,7 @@ export default function AdminInquiriesPage() {
                             className={`${statusColors[inquiry.status]} flex w-fit items-center gap-1`}
                           >
                             {statusIcons[inquiry.status]}
-                            <span className="capitalize">{inquiry.status}</span>
+                            <span>{statusLabels[inquiry.status]}</span>
                           </Badge>
                         </TableCell>
                         <TableCell className="text-right">
@@ -221,14 +228,14 @@ export default function AdminInquiriesPage() {
                                 }}
                               >
                                 <Eye className="h-4 w-4" />
-                                <span className="sr-only">View inquiry</span>
+                                <span className="sr-only">Лавлагаа харах</span>
                               </Button>
                             </DialogTrigger>
                             <DialogContent className="max-w-lg">
                               <DialogHeader>
                                 <DialogTitle>{inquiry.subject}</DialogTitle>
                                 <DialogDescription>
-                                  From {inquiry.name} ({inquiry.email})
+                                  {inquiry.name} ({inquiry.email})-ээс
                                 </DialogDescription>
                               </DialogHeader>
                               <div className="space-y-4">
@@ -236,12 +243,12 @@ export default function AdminInquiriesPage() {
                                   <p className="text-sm whitespace-pre-wrap">{inquiry.message}</p>
                                 </div>
                                 <div className="text-sm text-muted-foreground">
-                                  Received on {new Date(inquiry.createdAt).toLocaleString()}
+                                  Хүлээн авсан: {new Date(inquiry.createdAt).toLocaleString()}
                                 </div>
                                 {inquiry.status !== "archived" && (
                                   <div className="space-y-2">
                                     <Textarea
-                                      placeholder="Write your reply..."
+                                      placeholder="Хариугаа бичнэ үү..."
                                       value={replyText}
                                       onChange={(e) => setReplyText(e.target.value)}
                                       rows={4}
@@ -256,14 +263,14 @@ export default function AdminInquiriesPage() {
                                         disabled={!replyText.trim()}
                                       >
                                         <Mail className="mr-2 h-4 w-4" />
-                                        Send Reply
+                                        Хариу илгээх
                                       </Button>
                                       <Button
                                         variant="outline"
                                         onClick={() => updateInquiryStatus(inquiry.id, "archived")}
                                       >
                                         <Archive className="mr-2 h-4 w-4" />
-                                        Archive
+                                        Архивлах
                                       </Button>
                                     </div>
                                   </div>

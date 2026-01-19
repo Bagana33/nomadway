@@ -21,12 +21,12 @@ export async function generateMetadata({ params }: TourPageProps): Promise<Metad
 
   if (!tour) {
     return {
-      title: "Tour Not Found | NomadWay Travel",
+      title: "Аялал олдсонгүй | NomadWay Аялал",
     }
   }
 
   return {
-    title: `${tour.name} | NomadWay Travel`,
+    title: `${tour.name} | NomadWay Аялал`,
     description: tour.shortDescription,
     openGraph: {
       title: tour.name,

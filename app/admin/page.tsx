@@ -11,34 +11,41 @@ import {
 
 const stats = [
   {
-    title: "Total Bookings",
+    title: "Нийт захиалга",
     value: mockBookings.length.toString(),
     change: "+12%",
     trend: "up",
     icon: CalendarDays,
   },
   {
-    title: "Revenue",
+    title: "Орлого",
     value: `$${mockBookings.reduce((acc, b) => acc + b.totalPrice, 0).toLocaleString()}`,
     change: "+8%",
     trend: "up",
     icon: DollarSign,
   },
   {
-    title: "Active Tours",
+    title: "Идэвхтэй аялал",
     value: tours.length.toString(),
     change: "0%",
     trend: "neutral",
     icon: TrendingUp,
   },
   {
-    title: "Total Travelers",
+    title: "Нийт аялагч",
     value: mockBookings.reduce((acc, b) => acc + b.numberOfPeople, 0).toString(),
     change: "+15%",
     trend: "up",
     icon: Users,
   },
 ]
+
+const statusLabels = {
+  pending: "Хүлээгдэж байна",
+  confirmed: "Баталгаажсан",
+  cancelled: "Цуцлагдсан",
+  completed: "Дууссан",
+} as const
 
 export default function AdminDashboard() {
   const pendingBookings = mockBookings.filter((b) => b.status === "pending")
@@ -48,8 +55,8 @@ export default function AdminDashboard() {
     <div className="p-6 md:p-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-foreground md:text-3xl">Dashboard</h1>
-        <p className="text-muted-foreground">Welcome back! Here&apos;s what&apos;s happening.</p>
+        <h1 className="text-2xl font-bold text-foreground md:text-3xl">Хяналтын самбар</h1>
+        <p className="text-muted-foreground">Тавтай морил! Одоогийн мэдээлэл энд байна.</p>
       </div>
 
       {/* Stats Grid */}
@@ -80,7 +87,7 @@ export default function AdminDashboard() {
                 ) : (
                   <span className="text-muted-foreground">{stat.change}</span>
                 )}
-                <span className="text-muted-foreground">from last month</span>
+                <span className="text-muted-foreground">өмнөх сараас</span>
               </div>
             </CardContent>
           </Card>
@@ -92,7 +99,7 @@ export default function AdminDashboard() {
         {/* Recent Bookings */}
         <Card>
           <CardHeader>
-            <CardTitle>Recent Bookings</CardTitle>
+            <CardTitle>Сүүлийн захиалгууд</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -118,7 +125,7 @@ export default function AdminDashboard() {
                             : "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
                       }`}
                     >
-                      {booking.status}
+                      {statusLabels[booking.status]}
                     </span>
                   </div>
                 </div>
@@ -130,13 +137,13 @@ export default function AdminDashboard() {
         {/* Booking Status */}
         <Card>
           <CardHeader>
-            <CardTitle>Booking Status Overview</CardTitle>
+            <CardTitle>Захиалгын төлөвийн тойм</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
               <div>
                 <div className="mb-2 flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">Pending</span>
+                  <span className="text-muted-foreground">Хүлээгдэж байна</span>
                   <span className="font-medium text-foreground">{pendingBookings.length}</span>
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-muted">
@@ -151,7 +158,7 @@ export default function AdminDashboard() {
 
               <div>
                 <div className="mb-2 flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">Confirmed</span>
+                  <span className="text-muted-foreground">Баталгаажсан</span>
                   <span className="font-medium text-foreground">{confirmedBookings.length}</span>
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-muted">
@@ -165,11 +172,11 @@ export default function AdminDashboard() {
               </div>
 
               <div className="rounded-lg border border-border bg-muted/50 p-4">
-                <h4 className="mb-2 font-medium text-foreground">Quick Actions</h4>
+                <h4 className="mb-2 font-medium text-foreground">Шуурхай үйлдлүүд</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• {pendingBookings.length} bookings need review</li>
-                  <li>• {tours.length} active tours available</li>
-                  <li>• All systems operational</li>
+                  <li>• {pendingBookings.length} захиалгыг хянах шаардлагатай</li>
+                  <li>• {tours.length} идэвхтэй аялал байна</li>
+                  <li>• Бүх систем хэвийн</li>
                 </ul>
               </div>
             </div>

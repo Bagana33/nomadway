@@ -45,6 +45,12 @@ export default function AdminToursPage() {
   const [tours, setTours] = useState(mockTours);
 
   const categories = Array.from(new Set(mockTours.map((t) => t.category)));
+  const categoryLabels: Record<string, string> = {
+    adventure: "Адал явдал",
+    cultural: "Соёл",
+    nature: "Байгаль",
+    luxury: "Тансаг",
+  };
 
   const filteredTours = tours.filter((tour) => {
     const matchesSearch =
@@ -66,39 +72,39 @@ export default function AdminToursPage() {
       <div className="space-y-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Tours</h1>
-            <p className="text-muted-foreground">Manage your tour packages</p>
+          <h1 className="text-3xl font-bold tracking-tight">Аяллууд</h1>
+          <p className="text-muted-foreground">Аяллын багцуудыг удирдах</p>
           </div>
           <Dialog>
             <DialogTrigger asChild>
               <Button>
                 <Plus className="mr-2 h-4 w-4" />
-                Add Tour
+              Аялал нэмэх
               </Button>
             </DialogTrigger>
             <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
-                <DialogTitle>Add New Tour</DialogTitle>
+              <DialogTitle>Шинэ аялал нэмэх</DialogTitle>
                 <DialogDescription>
-                  Create a new tour package. Fill in all the required details.
+                Шинэ аяллын багц үүсгэнэ. Шаардлагатай мэдээллийг бөглөнө үү.
                 </DialogDescription>
               </DialogHeader>
               <form className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="title">Tour Title</Label>
-                    <Input id="title" placeholder="Enter tour title" />
+                  <Label htmlFor="title">Аяллын нэр</Label>
+                  <Input id="title" placeholder="Аяллын нэр оруулах" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="category">Category</Label>
+                  <Label htmlFor="category">Ангилал</Label>
                     <Select>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select category" />
+                      <SelectValue placeholder="Ангилал сонгох" />
                       </SelectTrigger>
                       <SelectContent>
                         {categories.map((cat) => (
                           <SelectItem key={cat} value={cat}>
-                            {cat}
+                          {categoryLabels[cat] ?? cat}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -106,55 +112,55 @@ export default function AdminToursPage() {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="description">Short Description</Label>
+                <Label htmlFor="description">Товч тайлбар</Label>
                   <Textarea
                     id="description"
-                    placeholder="Brief description of the tour"
+                  placeholder="Аяллын товч тайлбар"
                     rows={2}
                   />
                 </div>
                 <div className="grid gap-4 sm:grid-cols-3">
                   <div className="space-y-2">
-                    <Label htmlFor="price">Price (USD)</Label>
+                  <Label htmlFor="price">Үнэ (USD)</Label>
                     <Input id="price" type="number" placeholder="0" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="duration">Duration (days)</Label>
+                  <Label htmlFor="duration">Үргэлжлэх хугацаа (хоног)</Label>
                     <Input id="duration" type="number" placeholder="0" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="maxGroup">Max Group Size</Label>
+                  <Label htmlFor="maxGroup">Хамгийн их бүлгийн тоо</Label>
                     <Input id="maxGroup" type="number" placeholder="0" />
                   </div>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="location">Location</Label>
-                    <Input id="location" placeholder="e.g., Gobi Desert" />
+                  <Label htmlFor="location">Байршил</Label>
+                  <Input id="location" placeholder="Жишээ: Говь цөл" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="difficulty">Difficulty</Label>
+                  <Label htmlFor="difficulty">Хүндийн зэрэг</Label>
                     <Select>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select difficulty" />
+                      <SelectValue placeholder="Хүндийн зэрэг сонгох" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="Easy">Easy</SelectItem>
-                        <SelectItem value="Moderate">Moderate</SelectItem>
-                        <SelectItem value="Challenging">Challenging</SelectItem>
+                      <SelectItem value="Easy">Хялбар</SelectItem>
+                      <SelectItem value="Moderate">Дунд</SelectItem>
+                      <SelectItem value="Challenging">Хэцүү</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Switch id="featured" />
-                  <Label htmlFor="featured">Featured Tour</Label>
+                <Label htmlFor="featured">Онцлох аялал</Label>
                 </div>
                 <div className="flex justify-end gap-2 pt-4">
-                  <Button type="button" variant="outline">
-                    Cancel
-                  </Button>
-                  <Button type="submit">Create Tour</Button>
+                <Button type="button" variant="outline">
+                  Болих
+                </Button>
+                <Button type="submit">Аялал үүсгэх</Button>
                 </div>
               </form>
             </DialogContent>
@@ -163,14 +169,14 @@ export default function AdminToursPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>All Tours</CardTitle>
+          <CardTitle>Бүх аялал</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="mb-6 flex flex-col gap-4 sm:flex-row">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
-                  placeholder="Search tours..."
+                  placeholder="Аялал хайх..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-9"
@@ -178,13 +184,13 @@ export default function AdminToursPage() {
               </div>
               <Select value={categoryFilter} onValueChange={setCategoryFilter}>
                 <SelectTrigger className="w-full sm:w-[180px]">
-                  <SelectValue placeholder="Filter by category" />
+                  <SelectValue placeholder="Ангиллаар шүүх" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Categories</SelectItem>
+                  <SelectItem value="all">Бүх ангилал</SelectItem>
                   {categories.map((cat) => (
                     <SelectItem key={cat} value={cat}>
-                      {cat}
+                      {categoryLabels[cat] ?? cat}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -195,20 +201,20 @@ export default function AdminToursPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Tour</TableHead>
-                    <TableHead className="hidden md:table-cell">Category</TableHead>
-                    <TableHead className="hidden sm:table-cell">Duration</TableHead>
-                    <TableHead>Price</TableHead>
-                    <TableHead className="hidden lg:table-cell">Rating</TableHead>
-                    <TableHead>Featured</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
+                    <TableHead>Аялал</TableHead>
+                    <TableHead className="hidden md:table-cell">Ангилал</TableHead>
+                    <TableHead className="hidden sm:table-cell">Хугацаа</TableHead>
+                    <TableHead>Үнэ</TableHead>
+                    <TableHead className="hidden lg:table-cell">Үнэлгээ</TableHead>
+                    <TableHead>Онцлох</TableHead>
+                    <TableHead className="text-right">Үйлдэл</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredTours.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={7} className="text-center py-8 text-muted-foreground">
-                        No tours found
+                        Аялал олдсонгүй
                       </TableCell>
                     </TableRow>
                   ) : (
@@ -230,12 +236,12 @@ export default function AdminToursPage() {
                           </div>
                         </TableCell>
                         <TableCell className="hidden md:table-cell">
-                          <Badge variant="outline">{tour.category}</Badge>
+                          <Badge variant="outline">{categoryLabels[tour.category] ?? tour.category}</Badge>
                         </TableCell>
                         <TableCell className="hidden sm:table-cell">
                           <div className="flex items-center">
                             <Calendar className="mr-1 h-3 w-3 text-muted-foreground" />
-                            {tour.duration} days
+                            {tour.duration} хоног
                           </div>
                         </TableCell>
                         <TableCell className="font-medium">
@@ -258,34 +264,34 @@ export default function AdminToursPage() {
                             <Button variant="ghost" size="icon" asChild>
                               <Link href={`/tours/${tour.slug}`} target="_blank">
                                 <Eye className="h-4 w-4" />
-                                <span className="sr-only">View tour</span>
+                                <span className="sr-only">Аялал харах</span>
                               </Link>
                             </Button>
                             <Dialog>
                               <DialogTrigger asChild>
                                 <Button variant="ghost" size="icon">
                                   <Edit className="h-4 w-4" />
-                                  <span className="sr-only">Edit tour</span>
+                                  <span className="sr-only">Аялал засах</span>
                                 </Button>
                               </DialogTrigger>
                               <DialogContent className="max-w-2xl">
                                 <DialogHeader>
-                                  <DialogTitle>Edit Tour</DialogTitle>
+                                  <DialogTitle>Аялал засах</DialogTitle>
                                   <DialogDescription>
-                                    Update tour details for {tour.name}
+                                    {tour.name} аяллын мэдээллийг шинэчлэх
                                   </DialogDescription>
                                 </DialogHeader>
                                 <form className="space-y-4">
                                   <div className="grid gap-4 sm:grid-cols-2">
                                     <div className="space-y-2">
-                                      <Label htmlFor={`edit-title-${tour.id}`}>Tour Title</Label>
+                                      <Label htmlFor={`edit-title-${tour.id}`}>Аяллын нэр</Label>
                                       <Input
                                         id={`edit-title-${tour.id}`}
                                         defaultValue={tour.name}
                                       />
                                     </div>
                                     <div className="space-y-2">
-                                      <Label htmlFor={`edit-category-${tour.id}`}>Category</Label>
+                                      <Label htmlFor={`edit-category-${tour.id}`}>Ангилал</Label>
                                       <Select defaultValue={tour.category}>
                                         <SelectTrigger>
                                           <SelectValue />
@@ -293,7 +299,7 @@ export default function AdminToursPage() {
                                         <SelectContent>
                                           {categories.map((cat) => (
                                             <SelectItem key={cat} value={cat}>
-                                              {cat}
+                                              {categoryLabels[cat] ?? cat}
                                             </SelectItem>
                                           ))}
                                         </SelectContent>
@@ -302,7 +308,7 @@ export default function AdminToursPage() {
                                   </div>
                                   <div className="space-y-2">
                                     <Label htmlFor={`edit-desc-${tour.id}`}>
-                                      Short Description
+                                      Товч тайлбар
                                     </Label>
                                     <Textarea
                                       id={`edit-desc-${tour.id}`}
@@ -313,7 +319,7 @@ export default function AdminToursPage() {
                                   <div className="grid gap-4 sm:grid-cols-3">
                                     <div className="space-y-2">
                                       <Label htmlFor={`edit-price-${tour.id}`}>
-                                        Price (USD)
+                                        Үнэ (USD)
                                       </Label>
                                       <Input
                                         id={`edit-price-${tour.id}`}
@@ -323,7 +329,7 @@ export default function AdminToursPage() {
                                     </div>
                                     <div className="space-y-2">
                                       <Label htmlFor={`edit-duration-${tour.id}`}>
-                                        Duration (days)
+                                        Үргэлжлэх хугацаа (хоног)
                                       </Label>
                                       <Input
                                         id={`edit-duration-${tour.id}`}
@@ -333,7 +339,7 @@ export default function AdminToursPage() {
                                     </div>
                                     <div className="space-y-2">
                                       <Label htmlFor={`edit-maxgroup-${tour.id}`}>
-                                        Max Group Size
+                                        Хамгийн их бүлгийн тоо
                                       </Label>
                                       <Input
                                         id={`edit-maxgroup-${tour.id}`}
@@ -344,9 +350,9 @@ export default function AdminToursPage() {
                                   </div>
                                   <div className="flex justify-end gap-2 pt-4">
                                     <Button type="button" variant="outline">
-                                      Cancel
+                                      Болих
                                     </Button>
-                                    <Button type="submit">Save Changes</Button>
+                                    <Button type="submit">Өөрчлөлт хадгалах</Button>
                                   </div>
                                 </form>
                               </DialogContent>

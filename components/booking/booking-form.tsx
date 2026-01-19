@@ -32,6 +32,7 @@ import {
   Loader2,
 } from "lucide-react"
 import { format } from "date-fns"
+import { mn } from "date-fns/locale"
 import { cn } from "@/lib/utils"
 import { useToast } from "@/hooks/use-toast"
 
@@ -94,8 +95,8 @@ export function BookingForm() {
     await new Promise((resolve) => setTimeout(resolve, 2000))
     
     toast({
-      title: "Booking Confirmed!",
-      description: "Check your email for confirmation details.",
+      title: "Захиалга баталгаажлаа!",
+      description: "Баталгаажуулалтын дэлгэрэнгүй мэдээллийг и-мэйлээр авна уу.",
     })
     
     setStep("confirm")
@@ -109,28 +110,30 @@ export function BookingForm() {
           <div className="mb-6 flex h-16 w-16 mx-auto items-center justify-center rounded-full bg-green-100 dark:bg-green-900">
             <Check className="h-8 w-8 text-green-600 dark:text-green-400" />
           </div>
-          <h1 className="mb-4 text-3xl font-bold text-foreground">Booking Confirmed!</h1>
+          <h1 className="mb-4 text-3xl font-bold text-foreground">Захиалга баталгаажлаа!</h1>
           <p className="mb-8 text-muted-foreground">
-            Thank you for booking with NomadWay Travel. A confirmation email has been sent to {email}.
+            NomadWay Аяллыг сонгосонд баярлалаа. Баталгаажуулалтын и-мэйл {email} рүү илгээгдлээ.
           </p>
           <Card className="mb-8 text-left">
             <CardContent className="p-6">
-              <h3 className="mb-4 font-semibold">Booking Details</h3>
+              <h3 className="mb-4 font-semibold">Захиалгын дэлгэрэнгүй</h3>
               <dl className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <dt className="text-muted-foreground">Tour</dt>
+                  <dt className="text-muted-foreground">Аялал</dt>
                   <dd className="font-medium">{tour?.name}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-muted-foreground">Date</dt>
-                  <dd className="font-medium">{selectedDate && format(selectedDate, "PPP")}</dd>
+                  <dt className="text-muted-foreground">Огноо</dt>
+                  <dd className="font-medium">
+                    {selectedDate && format(selectedDate, "PPP", { locale: mn })}
+                  </dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-muted-foreground">Travelers</dt>
-                  <dd className="font-medium">{numberOfPeople} people</dd>
+                  <dt className="text-muted-foreground">Аялагчид</dt>
+                  <dd className="font-medium">{numberOfPeople} хүн</dd>
                 </div>
                 <div className="flex justify-between border-t pt-2">
-                  <dt className="text-muted-foreground">Total</dt>
+                  <dt className="text-muted-foreground">Нийт</dt>
                   <dd className="text-lg font-bold text-accent">${totalPrice}</dd>
                 </div>
               </dl>
@@ -138,10 +141,10 @@ export function BookingForm() {
           </Card>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button asChild variant="outline">
-              <Link href="/tours">Browse More Tours</Link>
+              <Link href="/tours">Бусад аяллыг үзэх</Link>
             </Button>
             <Button asChild>
-              <Link href="/">Return Home</Link>
+              <Link href="/">Нүүр рүү буцах</Link>
             </Button>
           </div>
         </div>
@@ -158,10 +161,10 @@ export function BookingForm() {
             <Button variant="ghost" size="sm" asChild>
               <Link href={tour ? `/tours/${tour.slug}` : "/tours"}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Back
+                Буцах
               </Link>
             </Button>
-            <h1 className="text-xl font-semibold">Book Your Adventure</h1>
+            <h1 className="text-xl font-semibold">Аяллаа захиалах</h1>
           </div>
         </div>
       </div>
@@ -181,7 +184,7 @@ export function BookingForm() {
               )}>
                 {step === "details" ? <Check className="h-4 w-4" /> : "1"}
               </div>
-              <span className="hidden font-medium sm:inline">Select Tour</span>
+              <span className="hidden font-medium sm:inline">Аялал сонгох</span>
             </div>
             <div className="h-px w-8 bg-border" />
             <div className={cn(
@@ -194,7 +197,7 @@ export function BookingForm() {
               )}>
                 2
               </div>
-              <span className="hidden font-medium sm:inline">Your Details</span>
+              <span className="hidden font-medium sm:inline">Таны мэдээлэл</span>
             </div>
           </div>
         </div>
@@ -209,17 +212,17 @@ export function BookingForm() {
                 {/* Tour Selection */}
                 <Card>
                   <CardHeader>
-                    <CardTitle>Select Your Tour</CardTitle>
+                    <CardTitle>Аяллаа сонгох</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <Select value={selectedTour} onValueChange={setSelectedTour}>
                       <SelectTrigger>
-                        <SelectValue placeholder="Choose a tour" />
+                        <SelectValue placeholder="Аялал сонгох" />
                       </SelectTrigger>
                       <SelectContent>
                         {tours.map((t) => (
                           <SelectItem key={t.id} value={t.id}>
-                            {t.name} - ${t.price}/person ({t.duration} days)
+                            {t.name} - ${t.price}/хүн ({t.duration} хоног)
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -246,7 +249,7 @@ export function BookingForm() {
                 {/* Date Selection */}
                 <Card>
                   <CardHeader>
-                    <CardTitle>Choose Your Date</CardTitle>
+                    <CardTitle>Огноо сонгох</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <Popover>
@@ -259,7 +262,7 @@ export function BookingForm() {
                           )}
                         >
                           <CalendarIcon className="mr-2 h-4 w-4" />
-                          {selectedDate ? format(selectedDate, "PPP") : "Select departure date"}
+                          {selectedDate ? format(selectedDate, "PPP", { locale: mn }) : "Явах огноог сонгох"}
                         </Button>
                       </PopoverTrigger>
                       <PopoverContent className="w-auto p-0" align="start">
@@ -278,7 +281,7 @@ export function BookingForm() {
                     </Popover>
                     {tour && (
                       <p className="mt-2 text-sm text-muted-foreground">
-                        {availableDates.length} dates available
+                        {availableDates.length} боломжит огноо
                       </p>
                     )}
                   </CardContent>
@@ -289,7 +292,7 @@ export function BookingForm() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Users className="h-5 w-5" />
-                      Number of Travelers
+                      Аялагчдын тоо
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -301,7 +304,7 @@ export function BookingForm() {
                         {Array.from({ length: tour?.maxGroupSize || 12 }, (_, i) => i + 1).map(
                           (num) => (
                             <SelectItem key={num} value={num.toString()}>
-                              {num} {num === 1 ? "person" : "people"}
+                              {num} хүн
                             </SelectItem>
                           )
                         )}
@@ -313,7 +316,7 @@ export function BookingForm() {
                 {/* Additional Services */}
                 <Card>
                   <CardHeader>
-                    <CardTitle>Additional Services</CardTitle>
+                    <CardTitle>Нэмэлт үйлчилгээ</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -343,7 +346,7 @@ export function BookingForm() {
                               ${service.price}
                             </span>
                             {service.priceType === "per-day" && (
-                              <span className="text-sm text-muted-foreground">/day</span>
+                              <span className="text-sm text-muted-foreground">/өдөр</span>
                             )}
                           </div>
                         </div>
@@ -358,7 +361,7 @@ export function BookingForm() {
                   className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
                   size="lg"
                 >
-                  Continue to Details
+                  Мэдээлэл рүү үргэлжлүүлэх
                 </Button>
               </>
             )}
@@ -367,27 +370,27 @@ export function BookingForm() {
               <>
                 <Card>
                   <CardHeader>
-                    <CardTitle>Personal Information</CardTitle>
+                    <CardTitle>Хувийн мэдээлэл</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
-                        <Label htmlFor="firstName">First Name *</Label>
+                        <Label htmlFor="firstName">Нэр *</Label>
                         <Input
                           id="firstName"
                           value={firstName}
                           onChange={(e) => setFirstName(e.target.value)}
-                          placeholder="John"
+                          placeholder="Болд"
                           required
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="lastName">Last Name *</Label>
+                        <Label htmlFor="lastName">Овог *</Label>
                         <Input
                           id="lastName"
                           value={lastName}
                           onChange={(e) => setLastName(e.target.value)}
-                          placeholder="Smith"
+                          placeholder="Бат"
                           required
                         />
                       </div>
@@ -395,24 +398,24 @@ export function BookingForm() {
 
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email *</Label>
+                        <Label htmlFor="email">И-мэйл *</Label>
                         <Input
                           id="email"
                           type="email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          placeholder="john@example.com"
+                          placeholder="bold@example.com"
                           required
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Phone *</Label>
+                        <Label htmlFor="phone">Утас *</Label>
                         <Input
                           id="phone"
                           type="tel"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          placeholder="+1 234 567 890"
+                          placeholder="+976 99 123 456"
                           required
                         />
                       </div>
@@ -420,7 +423,7 @@ export function BookingForm() {
 
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
-                        <Label htmlFor="passport">Passport Number *</Label>
+                        <Label htmlFor="passport">Паспортын дугаар *</Label>
                         <Input
                           id="passport"
                           value={passportNumber}
@@ -430,24 +433,24 @@ export function BookingForm() {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="nationality">Nationality *</Label>
+                        <Label htmlFor="nationality">Иргэншил *</Label>
                         <Input
                           id="nationality"
                           value={nationality}
                           onChange={(e) => setNationality(e.target.value)}
-                          placeholder="United States"
+                          placeholder="Монгол"
                           required
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="requests">Special Requests (Optional)</Label>
+                      <Label htmlFor="requests">Тусгай хүсэлт (заавал биш)</Label>
                       <Textarea
                         id="requests"
                         value={specialRequests}
                         onChange={(e) => setSpecialRequests(e.target.value)}
-                        placeholder="Dietary requirements, accessibility needs, etc."
+                        placeholder="Хоолны дэглэм, тусгай хэрэгцээ зэрэг..."
                         rows={3}
                       />
                     </div>
@@ -460,7 +463,7 @@ export function BookingForm() {
                     onClick={() => setStep("select")}
                     className="flex-1"
                   >
-                    Back
+                    Буцах
                   </Button>
                   <Button
                     onClick={handleSubmit}
@@ -470,10 +473,10 @@ export function BookingForm() {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Processing...
+                        Баталгаажуулж байна...
                       </>
                     ) : (
-                      "Confirm Booking"
+                      "Захиалга баталгаажуулах"
                     )}
                   </Button>
                 </div>
@@ -485,7 +488,7 @@ export function BookingForm() {
           <div className="lg:col-span-1">
             <Card className="sticky top-24">
               <CardHeader>
-                <CardTitle>Booking Summary</CardTitle>
+                <CardTitle>Захиалгын хураангуй</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {tour ? (
@@ -500,30 +503,30 @@ export function BookingForm() {
                       />
                       <div>
                         <h4 className="font-medium">{tour.name}</h4>
-                        <p className="text-sm text-muted-foreground">{tour.duration} days</p>
+                        <p className="text-sm text-muted-foreground">{tour.duration} хоног</p>
                       </div>
                     </div>
 
                     <div className="space-y-2 border-t border-border pt-4 text-sm">
                       {selectedDate && (
                         <div className="flex justify-between">
-                          <span className="text-muted-foreground">Date</span>
-                          <span>{format(selectedDate, "PP")}</span>
+                          <span className="text-muted-foreground">Огноо</span>
+                          <span>{format(selectedDate, "PP", { locale: mn })}</span>
                         </div>
                       )}
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Travelers</span>
-                        <span>{numberOfPeople} people</span>
+                        <span className="text-muted-foreground">Аялагчид</span>
+                        <span>{numberOfPeople} хүн</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Base price</span>
+                        <span className="text-muted-foreground">Суурь үнэ</span>
                         <span>${tour.price} x {numberOfPeople}</span>
                       </div>
 
                       {selectedServices.length > 0 && (
                         <div className="border-t border-border pt-2">
                           <p className="mb-2 text-xs font-medium uppercase text-muted-foreground">
-                            Additional Services
+                            Нэмэлт үйлчилгээ
                           </p>
                           {selectedServices.map((serviceId) => {
                             const service = additionalServices.find((s) => s.id === serviceId)
@@ -545,14 +548,14 @@ export function BookingForm() {
 
                     <div className="border-t border-border pt-4">
                       <div className="flex justify-between text-lg font-semibold">
-                        <span>Total</span>
+                        <span>Нийт</span>
                         <span className="text-accent">${totalPrice}</span>
                       </div>
                     </div>
                   </>
                 ) : (
                   <p className="text-center text-muted-foreground">
-                    Select a tour to see pricing
+                    Үнийн мэдээллийг харахын тулд аялал сонгоно уу
                   </p>
                 )}
               </CardContent>

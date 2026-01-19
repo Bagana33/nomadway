@@ -16,12 +16,12 @@ import { useToast } from "@/hooks/use-toast"
 import { Loader2, Send } from "lucide-react"
 
 const subjects = [
-  "General Inquiry",
-  "Tour Information",
-  "Booking Question",
-  "Custom Tour Request",
-  "Partnership Opportunity",
-  "Other",
+  "Ерөнхий лавлагаа",
+  "Аяллын мэдээлэл",
+  "Захиалгын асуулт",
+  "Захиалгат аялал",
+  "Хамтын ажиллагаа",
+  "Бусад",
 ]
 
 export function ContactForm() {
@@ -42,8 +42,8 @@ export function ContactForm() {
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
     toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll respond within 24 hours.",
+      title: "Зурвас илгээгдлээ!",
+      description: "Бидэнтэй холбогдсонд баярлалаа. 24 цагийн дотор хариу өгнө.",
     })
 
     setFormData({ name: "", email: "", subject: "", message: "" })
@@ -56,36 +56,36 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="name">Your Name *</Label>
+          <Label htmlFor="name">Таны нэр *</Label>
           <Input
             id="name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            placeholder="John Smith"
+            placeholder="Бат Болд"
             required
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">Email Address *</Label>
+          <Label htmlFor="email">И-мэйл хаяг *</Label>
           <Input
             id="email"
             type="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            placeholder="john@example.com"
+            placeholder="bat@example.com"
             required
           />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="subject">Subject *</Label>
+        <Label htmlFor="subject">Сэдэв *</Label>
         <Select
           value={formData.subject}
           onValueChange={(value) => setFormData({ ...formData, subject: value })}
         >
           <SelectTrigger id="subject">
-            <SelectValue placeholder="Select a subject" />
+            <SelectValue placeholder="Сэдэв сонгох" />
           </SelectTrigger>
           <SelectContent>
             {subjects.map((subject) => (
@@ -98,12 +98,12 @@ export function ContactForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message">Message *</Label>
+        <Label htmlFor="message">Зурвас *</Label>
         <Textarea
           id="message"
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          placeholder="Tell us about your travel plans or ask any questions..."
+          placeholder="Аяллын төлөвлөгөөгөө бичих эсвэл асуултаа үлдээнэ үү..."
           rows={5}
           required
         />
@@ -118,12 +118,12 @@ export function ContactForm() {
         {isSubmitting ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-            Sending...
+            Илгээж байна...
           </>
         ) : (
           <>
             <Send className="mr-2 h-4 w-4" />
-            Send Message
+            Зурвас илгээх
           </>
         )}
       </Button>

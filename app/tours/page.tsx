@@ -4,8 +4,8 @@ import { Footer } from "@/components/footer"
 import { ToursPageContent } from "@/components/tours/tours-page-content"
 
 export const metadata: Metadata = {
-  title: "Tours | NomadWay Travel",
-  description: "Explore our curated collection of Mongolian adventures. From Gobi Desert expeditions to cultural immersions with nomadic families.",
+  title: "Аяллууд | NomadWay Аялал",
+  description: "Монголын шилдэг аяллуудыг судлаарай. Говь цөлийн аяллаас эхлээд нүүдэлчдийн соёлын туршлага хүртэл.",
 }
 
 export default function ToursPage() {

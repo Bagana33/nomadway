@@ -13,11 +13,13 @@ import { faqs } from "@/lib/data"
 import { Mail } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "FAQ | NomadWay Travel",
-  description: "Find answers to frequently asked questions about traveling to Mongolia with NomadWay Travel.",
+  title: "Асуулт хариулт | NomadWay Аялал",
+  description: "NomadWay Аялалтай Монголд аялахтай холбоотой түгээмэл асуултын хариултууд.",
 }
 
 export default function FAQPage() {
+  const toSlug = (value: string) => value.toLowerCase().replace(/\s+/g, "-")
+
   // Group FAQs by category
   const groupedFaqs = faqs.reduce((acc, faq) => {
     if (!acc[faq.category]) {
@@ -37,11 +39,11 @@ export default function FAQPage() {
         <section className="bg-primary py-16 md:py-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="mb-4 text-3xl font-bold text-primary-foreground md:text-4xl lg:text-5xl">
-              Frequently Asked Questions
+              Түгээмэл асуултууд
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/80">
-              Everything you need to know about traveling to Mongolia with NomadWay.
-              Can&apos;t find what you&apos;re looking for? Contact us directly.
+              NomadWay-тай Монголд аялах талаар хэрэгтэй бүх мэдээлэл энд байна.
+              Хайж буй хариултаа олохгүй бол бидэнтэй шууд холбогдоорой.
             </p>
           </div>
         </section>
@@ -51,7 +53,7 @@ export default function FAQPage() {
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl">
               {categories.map((category) => (
-                <div key={category} id={category.toLowerCase()} className="mb-12 scroll-mt-24">
+                <div key={category} id={toSlug(category)} className="mb-12 scroll-mt-24">
                   <h2 className="mb-6 text-2xl font-bold text-foreground">{category}</h2>
                   <Accordion type="single" collapsible className="space-y-4">
                     {groupedFaqs[category].map((faq) => (
@@ -79,16 +81,16 @@ export default function FAQPage() {
         <section className="border-t border-border bg-muted/50 py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 className="mb-4 text-2xl font-bold text-foreground">
-              Still Have Questions?
+              Дахиад асуулт байна уу?
             </h2>
             <p className="mx-auto mb-8 max-w-lg text-muted-foreground">
-              Our team is ready to help you plan the perfect Mongolian adventure. 
-              Get in touch and we&apos;ll respond within 24 hours.
+              Манай баг таны төгс Монгол аяллыг төлөвлөхөд туслахад бэлэн.
+              Холбогдвол бид 24 цагийн дотор хариу өгнө.
             </p>
             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
               <Link href="/contact">
                 <Mail className="mr-2 h-4 w-4" />
-                Contact Us
+                Холбоо барих
               </Link>
             </Button>
           </div>

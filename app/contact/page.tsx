@@ -6,30 +6,30 @@ import { Card, CardContent } from "@/components/ui/card"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Contact Us | NomadWay Travel",
-  description: "Get in touch with NomadWay Travel. We're here to help plan your perfect Mongolian adventure.",
+  title: "Холбоо барих | NomadWay Аялал",
+  description: "NomadWay Аялалтай холбоо бариарай. Төгс Монгол аяллаа төлөвлөхөд бид тусална.",
 }
 
 const contactInfo = [
   {
     icon: MapPin,
-    title: "Visit Us",
-    details: ["Peace Avenue 15", "Ulaanbaatar, Mongolia"],
+    title: "Манай хаяг",
+    details: ["Энхтайвны өргөн чөлөө 15", "Улаанбаатар, Монгол"],
   },
   {
     icon: Phone,
-    title: "Call Us",
+    title: "Утас",
     details: ["+976 99 123 456", "+976 11 234 567"],
   },
   {
     icon: Mail,
-    title: "Email Us",
+    title: "И-мэйл",
     details: ["info@nomadway.mn", "bookings@nomadway.mn"],
   },
   {
     icon: Clock,
-    title: "Working Hours",
-    details: ["Mon - Fri: 9:00 - 18:00", "Sat: 10:00 - 14:00"],
+    title: "Ажлын цаг",
+    details: ["Дав - Баа: 9:00 - 18:00", "Бям: 10:00 - 14:00"],
   },
 ]
 
@@ -42,11 +42,11 @@ export default function ContactPage() {
         <section className="bg-primary py-16 md:py-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="mb-4 text-3xl font-bold text-primary-foreground md:text-4xl lg:text-5xl">
-              Get in Touch
+              Холбоо барих
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/80">
-              Have questions about our tours or need help planning your trip? 
-              We&apos;re here to help make your Mongolian adventure unforgettable.
+              Аяллын талаар асуулт байна уу эсвэл төлөвлөлтөд тусламж хэрэгтэй юу?
+              Манай баг таны Монгол аяллыг мартагдашгүй болгоход тусална.
             </p>
           </div>
         </section>
@@ -82,18 +82,18 @@ export default function ContactPage() {
             <div className="grid gap-8 lg:grid-cols-2">
               {/* Contact Form */}
               <div>
-                <h2 className="mb-2 text-2xl font-bold text-foreground">Send Us a Message</h2>
+                <h2 className="mb-2 text-2xl font-bold text-foreground">Бидэнд зурвас илгээх</h2>
                 <p className="mb-6 text-muted-foreground">
-                  Fill out the form below and we&apos;ll get back to you within 24 hours.
+                  Доорх маягтыг бөглөөд илгээвэл бид 24 цагийн дотор хариу өгнө.
                 </p>
                 <ContactForm />
               </div>
 
               {/* Map Placeholder */}
               <div className="flex flex-col">
-                <h2 className="mb-2 text-2xl font-bold text-foreground">Find Us</h2>
+                <h2 className="mb-2 text-2xl font-bold text-foreground">Байршил</h2>
                 <p className="mb-6 text-muted-foreground">
-                  Our office is located in the heart of Ulaanbaatar.
+                  Манай оффис Улаанбаатарын төвд байрладаг.
                 </p>
                 <div className="flex-1 overflow-hidden rounded-xl border border-border bg-muted">
                   <iframe
@@ -104,7 +104,7 @@ export default function ContactPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="NomadWay Travel Office Location"
+                    title="NomadWay Аяллын оффисын байршил"
                   />
                 </div>
               </div>

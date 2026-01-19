@@ -21,81 +21,81 @@ export default function AdminSettingsPage() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsSaving(false);
     toast({
-      title: "Settings saved",
-      description: "Your changes have been saved successfully.",
+      title: "Тохиргоо хадгалагдлаа",
+      description: "Өөрчлөлтүүд амжилттай хадгалагдлаа.",
     });
   };
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
-        <p className="text-muted-foreground">Manage your website and business settings</p>
+        <h1 className="text-3xl font-bold tracking-tight">Тохиргоо</h1>
+        <p className="text-muted-foreground">Вэбсайт болон бизнесийн тохиргоог удирдах</p>
       </div>
 
       <Tabs defaultValue="general" className="space-y-6">
         <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4">
           <TabsTrigger value="general" className="gap-2">
             <Building2 className="h-4 w-4" />
-            <span className="hidden sm:inline">General</span>
+            <span className="hidden sm:inline">Ерөнхий</span>
           </TabsTrigger>
           <TabsTrigger value="contact" className="gap-2">
             <Mail className="h-4 w-4" />
-            <span className="hidden sm:inline">Contact</span>
+            <span className="hidden sm:inline">Холбоо барих</span>
           </TabsTrigger>
           <TabsTrigger value="notifications" className="gap-2">
             <Bell className="h-4 w-4" />
-            <span className="hidden sm:inline">Notifications</span>
+            <span className="hidden sm:inline">Мэдэгдэл</span>
           </TabsTrigger>
           <TabsTrigger value="security" className="gap-2">
             <Shield className="h-4 w-4" />
-            <span className="hidden sm:inline">Security</span>
+            <span className="hidden sm:inline">Аюулгүй байдал</span>
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="general">
           <Card>
             <CardHeader>
-              <CardTitle>General Settings</CardTitle>
+              <CardTitle>Ерөнхий тохиргоо</CardTitle>
               <CardDescription>
-                Manage your business information and website settings
+                Бизнесийн мэдээлэл, вэбсайтын тохиргоог удирдах
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="companyName">Company Name</Label>
-                  <Input id="companyName" defaultValue="NomadWay Travel" />
+                  <Label htmlFor="companyName">Компанийн нэр</Label>
+                  <Input id="companyName" defaultValue="NomadWay Аялал" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="website">Website URL</Label>
+                  <Label htmlFor="website">Вэбсайтын холбоос</Label>
                   <Input id="website" defaultValue="https://nomadway.travel" />
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="description">Company Description</Label>
+                <Label htmlFor="description">Компанийн тайлбар</Label>
                 <Textarea
                   id="description"
-                  defaultValue="NomadWay Travel offers authentic Mongolian adventure tours, connecting travelers with the pristine beauty and rich nomadic culture of Mongolia."
+                  defaultValue="NomadWay Аялал нь Монголын онгон байгаль, нүүдэлчдийн баялаг соёлтой аялагчдыг холбосон жинхэнэ адал явдалт аяллуудыг санал болгодог."
                   rows={3}
                 />
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="currency">Default Currency</Label>
+                  <Label htmlFor="currency">Үндсэн валют</Label>
                   <Input id="currency" defaultValue="USD" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="timezone">Timezone</Label>
+                  <Label htmlFor="timezone">Цагийн бүс</Label>
                   <Input id="timezone" defaultValue="Asia/Ulaanbaatar (UTC+8)" />
                 </div>
               </div>
               <Separator />
               <div className="flex items-center justify-between">
                 <div className="space-y-0.5">
-                  <Label>Maintenance Mode</Label>
+                  <Label>Засварын горим</Label>
                   <p className="text-sm text-muted-foreground">
-                    Temporarily disable the website for visitors
+                    Зочдод түр хугацаанд сайтаа хаах
                   </p>
                 </div>
                 <Switch />
@@ -107,33 +107,33 @@ export default function AdminSettingsPage() {
         <TabsContent value="contact">
           <Card>
             <CardHeader>
-              <CardTitle>Contact Information</CardTitle>
+              <CardTitle>Холбоо барих мэдээлэл</CardTitle>
               <CardDescription>
-                Update your business contact details
+                Бизнесийн холбоо барих мэдээллийг шинэчлэх
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Address</Label>
+                  <Label htmlFor="email">И-мэйл хаяг</Label>
                   <Input id="email" type="email" defaultValue="info@nomadway.travel" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
+                  <Label htmlFor="phone">Утасны дугаар</Label>
                   <Input id="phone" defaultValue="+976 7000 1234" />
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="address">Business Address</Label>
+                <Label htmlFor="address">Бизнесийн хаяг</Label>
                 <Textarea
                   id="address"
-                  defaultValue="Peace Avenue 17, Suite 501&#10;Ulaanbaatar, Mongolia 14250"
+                  defaultValue="Энхтайвны өргөн чөлөө 17, 501 тоот&#10;Улаанбаатар, Монгол 14250"
                   rows={2}
                 />
               </div>
               <Separator />
               <div className="space-y-4">
-                <h4 className="font-medium">Social Media Links</h4>
+                <h4 className="font-medium">Сошиал сувгууд</h4>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="facebook">Facebook</Label>
@@ -160,18 +160,18 @@ export default function AdminSettingsPage() {
         <TabsContent value="notifications">
           <Card>
             <CardHeader>
-              <CardTitle>Notification Settings</CardTitle>
+              <CardTitle>Мэдэгдлийн тохиргоо</CardTitle>
               <CardDescription>
-                Configure how you receive notifications
+                Мэдэгдэл хүлээн авах тохиргоо
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label>New Booking Notifications</Label>
+                    <Label>Шинэ захиалгын мэдэгдэл</Label>
                     <p className="text-sm text-muted-foreground">
-                      Get notified when a new booking is made
+                      Шинэ захиалга үүсэхэд мэдэгдэл авах
                     </p>
                   </div>
                   <Switch defaultChecked />
@@ -179,9 +179,9 @@ export default function AdminSettingsPage() {
                 <Separator />
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label>New Inquiry Notifications</Label>
+                    <Label>Шинэ лавлагааны мэдэгдэл</Label>
                     <p className="text-sm text-muted-foreground">
-                      Get notified when someone submits a contact form
+                      Холбоо барих маягтаар хүсэлт ирэхэд мэдэгдэх
                     </p>
                   </div>
                   <Switch defaultChecked />
@@ -189,9 +189,9 @@ export default function AdminSettingsPage() {
                 <Separator />
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label>Payment Notifications</Label>
+                    <Label>Төлбөрийн мэдэгдэл</Label>
                     <p className="text-sm text-muted-foreground">
-                      Get notified for payment confirmations and failures
+                      Төлбөр амжилттай/амжилтгүй үед мэдэгдэх
                     </p>
                   </div>
                   <Switch defaultChecked />
@@ -199,9 +199,9 @@ export default function AdminSettingsPage() {
                 <Separator />
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label>Weekly Summary Reports</Label>
+                    <Label>Долоо хоногийн тайлан</Label>
                     <p className="text-sm text-muted-foreground">
-                      Receive a weekly summary of bookings and revenue
+                      Захиалга, орлогын долоо хоногийн тойм авах
                     </p>
                   </div>
                   <Switch />
@@ -214,37 +214,37 @@ export default function AdminSettingsPage() {
         <TabsContent value="security">
           <Card>
             <CardHeader>
-              <CardTitle>Security Settings</CardTitle>
+              <CardTitle>Аюулгүй байдлын тохиргоо</CardTitle>
               <CardDescription>
-                Manage your account security and access
+                Бүртгэлийн аюулгүй байдал, хандалтыг удирдах
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
-                <h4 className="font-medium">Change Password</h4>
+                <h4 className="font-medium">Нууц үг солих</h4>
                 <div className="grid gap-4 max-w-md">
                   <div className="space-y-2">
-                    <Label htmlFor="currentPassword">Current Password</Label>
+                    <Label htmlFor="currentPassword">Одоогийн нууц үг</Label>
                     <Input id="currentPassword" type="password" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="newPassword">New Password</Label>
+                    <Label htmlFor="newPassword">Шинэ нууц үг</Label>
                     <Input id="newPassword" type="password" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="confirmPassword">Confirm New Password</Label>
+                    <Label htmlFor="confirmPassword">Шинэ нууц үг баталгаажуулах</Label>
                     <Input id="confirmPassword" type="password" />
                   </div>
-                  <Button className="w-fit">Update Password</Button>
+                  <Button className="w-fit">Нууц үг шинэчлэх</Button>
                 </div>
               </div>
               <Separator />
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label>Two-Factor Authentication</Label>
+                    <Label>Хоёр шатлалт баталгаажуулалт</Label>
                     <p className="text-sm text-muted-foreground">
-                      Add an extra layer of security to your account
+                      Бүртгэлдээ нэмэлт хамгаалалт нэмэх
                     </p>
                   </div>
                   <Switch />
@@ -252,9 +252,9 @@ export default function AdminSettingsPage() {
                 <Separator />
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <Label>Session Timeout</Label>
+                    <Label>Сеансын хугацаа дуусах</Label>
                     <p className="text-sm text-muted-foreground">
-                      Automatically log out after 30 minutes of inactivity
+                      30 минут идэвхгүй үед автоматаар гаргах
                     </p>
                   </div>
                   <Switch defaultChecked />
@@ -268,7 +268,7 @@ export default function AdminSettingsPage() {
       <div className="flex justify-end">
         <Button onClick={handleSave} disabled={isSaving}>
           <Save className="mr-2 h-4 w-4" />
-          {isSaving ? "Saving..." : "Save All Changes"}
+          {isSaving ? "Хадгалж байна..." : "Бүх өөрчлөлтийг хадгалах"}
         </Button>
       </div>
     </div>

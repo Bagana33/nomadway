@@ -51,15 +51,34 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
     luxury: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
   }
 
+  const categoryLabels: Record<Tour["category"], string> = {
+    adventure: "Адал явдал",
+    cultural: "Соёл",
+    nature: "Байгаль",
+    luxury: "Тансаг",
+  }
+
+  const difficultyLabels: Record<Tour["difficulty"], string> = {
+    easy: "Хялбар",
+    moderate: "Дунд",
+    challenging: "Хэцүү",
+  }
+
+  const mealLabels: Record<string, string> = {
+    breakfast: "Өглөөний хоол",
+    lunch: "Өдрийн хоол",
+    dinner: "Оройн хоол",
+  }
+
   return (
     <>
       {/* Breadcrumb */}
       <div className="border-b border-border bg-muted/30">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-foreground">Home</Link>
+            <Link href="/" className="hover:text-foreground">Нүүр</Link>
             <span>/</span>
-            <Link href="/tours" className="hover:text-foreground">Tours</Link>
+            <Link href="/tours" className="hover:text-foreground">Аяллууд</Link>
             <span>/</span>
             <span className="text-foreground">{tour.name}</span>
           </nav>
@@ -113,7 +132,7 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
                             : "w-2 bg-white/50 hover:bg-white/70"
                         }`}
                       >
-                        <span className="sr-only">Image {index + 1}</span>
+                        <span className="sr-only">Зураг {index + 1}</span>
                       </button>
                     ))}
                   </div>
@@ -125,10 +144,10 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
             <div className="mb-6">
               <div className="mb-3 flex flex-wrap items-center gap-2">
                 <Badge className={categoryColors[tour.category]}>
-                  {tour.category.charAt(0).toUpperCase() + tour.category.slice(1)}
+                  {categoryLabels[tour.category]}
                 </Badge>
                 <Badge className={difficultyColors[tour.difficulty]}>
-                  {tour.difficulty.charAt(0).toUpperCase() + tour.difficulty.slice(1)}
+                  {difficultyLabels[tour.difficulty]}
                 </Badge>
               </div>
               <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">
@@ -142,16 +161,16 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Clock className="h-4 w-4" />
-                  <span>{tour.duration} days</span>
+                  <span>{tour.duration} хоног</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Users className="h-4 w-4" />
-                  <span>Max {tour.maxGroupSize} people</span>
+                  <span>Дээд {tour.maxGroupSize} хүн</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
                   <span>{tour.rating}</span>
-                  <span className="text-muted-foreground/60">({tour.reviewCount} reviews)</span>
+                  <span className="text-muted-foreground/60">({tour.reviewCount} сэтгэгдэл)</span>
                 </div>
               </div>
             </div>
@@ -159,20 +178,20 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
             {/* Tabs */}
             <Tabs defaultValue="overview" className="mb-8">
               <TabsList className="w-full justify-start">
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="itinerary">Itinerary</TabsTrigger>
-                <TabsTrigger value="included">What&apos;s Included</TabsTrigger>
+                <TabsTrigger value="overview">Товч танилцуулга</TabsTrigger>
+                <TabsTrigger value="itinerary">Хөтөлбөр</TabsTrigger>
+                <TabsTrigger value="included">Юу багтсан бэ</TabsTrigger>
               </TabsList>
 
               <TabsContent value="overview" className="mt-6">
                 <div className="space-y-6">
                   <div>
-                    <h2 className="mb-3 text-xl font-semibold text-foreground">About This Tour</h2>
+                    <h2 className="mb-3 text-xl font-semibold text-foreground">Аяллын тухай</h2>
                     <p className="leading-relaxed text-muted-foreground">{tour.description}</p>
                   </div>
 
                   <div>
-                    <h2 className="mb-3 text-xl font-semibold text-foreground">Highlights</h2>
+                    <h2 className="mb-3 text-xl font-semibold text-foreground">Онцлох зүйлс</h2>
                     <ul className="grid gap-2 sm:grid-cols-2">
                       {tour.highlights.map((highlight, index) => (
                         <li key={index} className="flex items-start gap-2">
@@ -204,7 +223,9 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
                         <div className="flex flex-wrap gap-4 text-sm">
                           <div className="flex items-center gap-1.5 text-muted-foreground">
                             <Utensils className="h-4 w-4" />
-                            <span className="capitalize">{day.meals.join(", ")}</span>
+                            <span>
+                              {day.meals.map((meal) => mealLabels[meal] ?? meal).join(", ")}
+                            </span>
                           </div>
                           <div className="flex items-center gap-1.5 text-muted-foreground">
                             <Home className="h-4 w-4" />
@@ -222,7 +243,7 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
                   <div>
                     <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-foreground">
                       <Check className="h-5 w-5 text-green-500" />
-                      What&apos;s Included
+                      Багтсан зүйлс
                     </h3>
                     <ul className="space-y-2">
                       {tour.included.map((item, index) => (
@@ -236,7 +257,7 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
                   <div>
                     <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-foreground">
                       <X className="h-5 w-5 text-red-500" />
-                      Not Included
+                      Багтаагүй зүйлс
                     </h3>
                     <ul className="space-y-2">
                       {tour.notIncluded.map((item, index) => (
@@ -257,28 +278,28 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
             <Card className="sticky top-24">
               <CardContent className="p-6">
                 <div className="mb-6">
-                  <span className="text-sm text-muted-foreground">From</span>
+                  <span className="text-sm text-muted-foreground">Эхлэх үнэ</span>
                   <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-bold text-foreground">${tour.price}</span>
-                    <span className="text-muted-foreground">/person</span>
+                    <span className="text-muted-foreground">/хүн</span>
                   </div>
                 </div>
 
                 <div className="mb-6 space-y-4">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Duration</span>
-                    <span className="font-medium">{tour.duration} days</span>
+                    <span className="text-muted-foreground">Үргэлжлэх хугацаа</span>
+                    <span className="font-medium">{tour.duration} хоног</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Group Size</span>
-                    <span className="font-medium">Max {tour.maxGroupSize}</span>
+                    <span className="text-muted-foreground">Бүлгийн хэмжээ</span>
+                    <span className="font-medium">Дээд {tour.maxGroupSize}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Difficulty</span>
-                    <span className="font-medium capitalize">{tour.difficulty}</span>
+                    <span className="text-muted-foreground">Хүндийн зэрэг</span>
+                    <span className="font-medium">{difficultyLabels[tour.difficulty]}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Start/End</span>
+                    <span className="text-muted-foreground">Эхлэх/Дуусах</span>
                     <span className="font-medium">{tour.startLocation}</span>
                   </div>
                 </div>
@@ -286,18 +307,18 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
                 <div className="mb-6">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Calendar className="h-4 w-4" />
-                    <span>{tour.availableDates.length} dates available</span>
+                    <span>{tour.availableDates.length} огноо боломжтой</span>
                   </div>
                 </div>
 
                 <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90" size="lg">
                   <Link href={`/booking?tour=${tour.slug}`}>
-                    Book This Tour
+                    Энэ аяллыг захиалах
                   </Link>
                 </Button>
 
                 <p className="mt-4 text-center text-xs text-muted-foreground">
-                  Free cancellation up to 30 days before departure
+                  Явах өдрөөс 30 хоногийн өмнө үнэгүй цуцлалт
                 </p>
 
                 {/* Trust Badges */}
@@ -305,8 +326,8 @@ export function TourDetailContent({ tour }: TourDetailContentProps) {
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Mountain className="h-5 w-5 text-primary" />
                     <div>
-                      <p className="font-medium text-foreground">Expert Local Guides</p>
-                      <p className="text-xs">All guides speak fluent English</p>
+                      <p className="font-medium text-foreground">Орон нутгийн мэргэжлийн хөтөч</p>
+                      <p className="text-xs">Бүх хөтөч англи хэлээр чөлөөтэй ярьдаг</p>
                     </div>
                   </div>
                 </div>

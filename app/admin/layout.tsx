@@ -3,8 +3,8 @@ import type { Metadata } from "next"
 import { AdminSidebar } from "@/components/admin/admin-sidebar"
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard | NomadWay Travel",
-  description: "Manage tours, bookings, and settings for NomadWay Travel.",
+  title: "Админ самбар | NomadWay Аялал",
+  description: "NomadWay Аяллын аялал, захиалга, тохиргоог удирдах.",
 }
 
 export default function AdminLayout({

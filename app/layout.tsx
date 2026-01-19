@@ -10,15 +10,16 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'NomadWay Travel | Discover Mongolia',
-  description: 'Experience authentic Mongolian adventures with NomadWay Travel. Explore the Gobi Desert, live with nomadic families, and discover pristine mountain landscapes.',
-  keywords: ['Mongolia travel', 'Gobi Desert tours', 'nomadic culture', 'adventure travel', 'Ulaanbaatar'],
-  authors: [{ name: 'NomadWay Travel' }],
+  title: 'NomadWay Аялал | Монголыг нээгээрэй',
+  description:
+    'NomadWay Аялалтай Монголын жинхэнэ адал явдлыг мэдрээрэй. Говь цөлийг судалж, нүүдэлчдийн гэр бүлтэй хамт амьдарч, уул усны үзэсгэлэнтэй нутгаар аялна.',
+  keywords: ['Монгол аялал', 'Говь цөлийн аялал', 'нүүдэлчдийн соёл', 'адал явдалт аялал', 'Улаанбаатар'],
+  authors: [{ name: 'NomadWay Аялал' }],
   openGraph: {
-    title: 'NomadWay Travel | Discover Mongolia',
-    description: 'Experience authentic Mongolian adventures with NomadWay Travel.',
+    title: 'NomadWay Аялал | Монголыг нээгээрэй',
+    description: 'NomadWay Аялалтай Монголын жинхэнэ адал явдлыг мэдрээрэй.',
     type: 'website',
-    locale: 'en_US',
+    locale: 'mn_MN',
   },
   icons: {
     icon: [
@@ -46,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="mn" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"

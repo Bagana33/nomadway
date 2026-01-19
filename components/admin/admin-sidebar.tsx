@@ -20,10 +20,10 @@ import {
 import { useTheme } from "next-themes"
 
 const navigation = [
-  { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { name: "Bookings", href: "/admin/bookings", icon: CalendarDays },
-  { name: "Tours", href: "/admin/tours", icon: MapPin },
-  { name: "Settings", href: "/admin/settings", icon: Settings },
+  { name: "Хяналтын самбар", href: "/admin", icon: LayoutDashboard },
+  { name: "Захиалгууд", href: "/admin/bookings", icon: CalendarDays },
+  { name: "Аяллууд", href: "/admin/tours", icon: MapPin },
+  { name: "Тохиргоо", href: "/admin/settings", icon: Settings },
 ]
 
 export function AdminSidebar() {
@@ -45,7 +45,7 @@ export function AdminSidebar() {
         </div>
         <div className="flex flex-col">
           <span className="text-sm font-bold leading-none text-sidebar-foreground">NomadWay</span>
-          <span className="text-[10px] font-medium text-sidebar-foreground/60">Admin Panel</span>
+          <span className="text-[10px] font-medium text-sidebar-foreground/60">Админ хэсэг</span>
         </div>
       </div>
 
@@ -79,7 +79,7 @@ export function AdminSidebar() {
             A
           </div>
           <div className="flex-1">
-            <p className="text-sm font-medium text-sidebar-foreground">Admin User</p>
+            <p className="text-sm font-medium text-sidebar-foreground">Админ хэрэглэгч</p>
             <p className="text-xs text-sidebar-foreground/60">admin@nomadway.mn</p>
           </div>
         </div>
@@ -107,7 +107,7 @@ export function AdminSidebar() {
           >
             <Link href="/">
               <LogOut className="h-4 w-4" />
-              <span className="sr-only">Exit to website</span>
+              <span className="sr-only">Сайт руу буцах</span>
             </Link>
           </Button>
         </div>
@@ -131,7 +131,7 @@ export function AdminSidebar() {
         </Sheet>
         <div className="ml-4 flex items-center gap-2">
           <Mountain className="h-5 w-5 text-sidebar-foreground" />
-          <span className="font-semibold text-sidebar-foreground">Admin</span>
+          <span className="font-semibold text-sidebar-foreground">Админ</span>
         </div>
       </div>
 

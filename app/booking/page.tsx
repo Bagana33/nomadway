@@ -5,8 +5,8 @@ import { Footer } from "@/components/footer"
 import { BookingForm } from "@/components/booking/booking-form"
 
 export const metadata: Metadata = {
-  title: "Book Your Tour | NomadWay Travel",
-  description: "Complete your booking for an unforgettable Mongolian adventure.",
+  title: "Аяллаа захиалах | NomadWay Аялал",
+  description: "Монголын мартагдашгүй аяллын захиалгаа бүрдүүлээрэй.",
 }
 
 export default function BookingPage() {

@@ -10,7 +10,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="/images/hero-mongolia.jpg"
-          alt="Mongolian landscape at sunset"
+          alt="Нар жаргах үеийн Монголын байгаль"
           fill
           priority
           className="object-cover"
@@ -25,18 +25,18 @@ export function HeroSection() {
           {/* Badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm">
             <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
-            <span className="text-sm font-medium text-white">Now Booking 2025 Adventures</span>
+            <span className="text-sm font-medium text-white">2025 оны аяллын захиалга нээлттэй</span>
           </div>
 
           {/* Headline */}
           <h1 className="mb-6 text-balance text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
-            Discover Mongolia.
-            <span className="block text-accent">Travel Smart.</span>
+            Монголыг нээгээрэй.
+            <span className="block text-accent">Ухаалгаар аял.</span>
           </h1>
 
           {/* Subheadline */}
           <p className="mb-8 max-w-lg text-pretty text-lg text-white/80 md:text-xl">
-            Experience authentic adventures across the vast Mongolian steppe. From the legendary Gobi Desert to pristine mountain lakes, your journey awaits.
+            Монголын уудам тал нутагт жинхэнэ адал явдлыг мэдэр. Домогт Говь цөлөөс эхлээд цэнгэг уулын нуурууд хүртэл таны аялал эндээс эхэлнэ.
           </p>
 
           {/* CTAs */}
@@ -47,7 +47,7 @@ export function HeroSection() {
               className="bg-accent text-accent-foreground hover:bg-accent/90"
             >
               <Link href="/tours">
-                Explore Tours
+                Аяллуудыг үзэх
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -59,7 +59,7 @@ export function HeroSection() {
             >
               <Link href="/about">
                 <Play className="mr-2 h-4 w-4" />
-                Watch Our Story
+                Манай түүхийг үзэх
               </Link>
             </Button>
           </div>
@@ -68,15 +68,15 @@ export function HeroSection() {
           <div className="mt-12 grid grid-cols-3 gap-8 border-t border-white/20 pt-8">
             <div>
               <p className="text-3xl font-bold text-white md:text-4xl">500+</p>
-              <p className="text-sm text-white/60">Happy Travelers</p>
+              <p className="text-sm text-white/60">Сэтгэл хангалуун аялагчид</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-white md:text-4xl">50+</p>
-              <p className="text-sm text-white/60">Unique Destinations</p>
+              <p className="text-sm text-white/60">Өвөрмөц чиглэлүүд</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-white md:text-4xl">9+</p>
-              <p className="text-sm text-white/60">Years Experience</p>
+              <p className="text-sm text-white/60">Туршлагын жил</p>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ export function HeroSection() {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs font-medium uppercase tracking-wider text-white/60">Scroll to explore</span>
+          <span className="text-xs font-medium uppercase tracking-wider text-white/60">Доош гүйлгээд судлаарай</span>
           <div className="h-12 w-6 rounded-full border-2 border-white/30 p-1">
             <div className="h-2 w-1.5 animate-bounce rounded-full bg-white" />
           </div>

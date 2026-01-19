@@ -25,18 +25,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Search, SlidersHorizontal, X, Plane, Languages, Car, Camera } from "lucide-react"
 
 const categories = [
-  { value: "all", label: "All Categories" },
-  { value: "adventure", label: "Adventure" },
-  { value: "cultural", label: "Cultural" },
-  { value: "nature", label: "Nature" },
-  { value: "luxury", label: "Luxury" },
+  { value: "all", label: "Бүх ангилал" },
+  { value: "adventure", label: "Адал явдал" },
+  { value: "cultural", label: "Соёл" },
+  { value: "nature", label: "Байгаль" },
+  { value: "luxury", label: "Тансаг" },
 ]
 
 const difficulties = [
-  { value: "all", label: "All Levels" },
-  { value: "easy", label: "Easy" },
-  { value: "moderate", label: "Moderate" },
-  { value: "challenging", label: "Challenging" },
+  { value: "all", label: "Бүх түвшин" },
+  { value: "easy", label: "Хялбар" },
+  { value: "moderate", label: "Дунд" },
+  { value: "challenging", label: "Хэцүү" },
 ]
 
 const serviceIcons: Record<string, React.ElementType> = {
@@ -79,12 +79,12 @@ export function ToursPageContent() {
     <div className="space-y-6">
       {/* Search */}
       <div className="space-y-2">
-        <Label htmlFor="search">Search</Label>
+        <Label htmlFor="search">Хайлт</Label>
         <div className="relative">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             id="search"
-            placeholder="Search tours..."
+            placeholder="Аялал хайх..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="pl-10"
@@ -94,10 +94,10 @@ export function ToursPageContent() {
 
       {/* Category */}
       <div className="space-y-2">
-        <Label>Category</Label>
+        <Label>Ангилал</Label>
         <Select value={category} onValueChange={setCategory}>
           <SelectTrigger>
-            <SelectValue placeholder="Select category" />
+            <SelectValue placeholder="Ангилал сонгох" />
           </SelectTrigger>
           <SelectContent>
             {categories.map((cat) => (
@@ -111,10 +111,10 @@ export function ToursPageContent() {
 
       {/* Difficulty */}
       <div className="space-y-2">
-        <Label>Difficulty</Label>
+        <Label>Хүндийн зэрэг</Label>
         <Select value={difficulty} onValueChange={setDifficulty}>
           <SelectTrigger>
-            <SelectValue placeholder="Select difficulty" />
+            <SelectValue placeholder="Хүндийн зэрэг сонгох" />
           </SelectTrigger>
           <SelectContent>
             {difficulties.map((diff) => (
@@ -129,7 +129,7 @@ export function ToursPageContent() {
       {/* Price Range */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <Label>Price Range</Label>
+          <Label>Үнийн муж</Label>
           <span className="text-sm text-muted-foreground">
             ${priceRange[0]} - ${priceRange[1]}
           </span>
@@ -146,9 +146,9 @@ export function ToursPageContent() {
       {/* Duration Range */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <Label>Duration (days)</Label>
+          <Label>Үргэлжлэх хугацаа (хоног)</Label>
           <span className="text-sm text-muted-foreground">
-            {durationRange[0]} - {durationRange[1]} days
+            {durationRange[0]} - {durationRange[1]} хоног
           </span>
         </div>
         <Slider
@@ -164,7 +164,7 @@ export function ToursPageContent() {
       {hasActiveFilters && (
         <Button variant="outline" onClick={clearFilters} className="w-full bg-transparent">
           <X className="mr-2 h-4 w-4" />
-          Clear All Filters
+          Бүх шүүлтүүрийг арилгах
         </Button>
       )}
     </div>
@@ -176,11 +176,11 @@ export function ToursPageContent() {
       <section className="bg-primary py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-4 text-3xl font-bold text-primary-foreground md:text-4xl lg:text-5xl">
-            Explore Our Tours
+            Манай аяллуудыг судлаарай
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-primary-foreground/80">
-            Discover handcrafted adventures through Mongolia&apos;s most spectacular landscapes.
-            Choose your perfect journey.
+            Монголын хамгийн гайхамшигтай байгаль дундуур хөтлөх аяллаа олж, өөртөө
+            тохирсон аяллыг сонгоорой.
           </p>
         </div>
       </section>
@@ -192,7 +192,7 @@ export function ToursPageContent() {
             {/* Desktop Filters Sidebar */}
             <aside className="hidden w-72 shrink-0 lg:block">
               <div className="sticky top-24 rounded-xl border border-border bg-card p-6">
-                <h2 className="mb-6 text-lg font-semibold">Filters</h2>
+                <h2 className="mb-6 text-lg font-semibold">Шүүлтүүр</h2>
                 <FilterContent />
               </div>
             </aside>
@@ -202,7 +202,7 @@ export function ToursPageContent() {
               {/* Mobile Filter Button & Results Count */}
               <div className="mb-6 flex items-center justify-between">
                 <p className="text-muted-foreground">
-                  {filteredTours.length} {filteredTours.length === 1 ? 'tour' : 'tours'} found
+                  {filteredTours.length} аялал олдлоо
                 </p>
                 
                 {/* Mobile Filter Sheet */}
@@ -210,7 +210,7 @@ export function ToursPageContent() {
                   <SheetTrigger asChild className="lg:hidden">
                     <Button variant="outline" size="sm">
                       <SlidersHorizontal className="mr-2 h-4 w-4" />
-                      Filters
+                      Шүүлтүүр
                       {hasActiveFilters && (
                         <span className="ml-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
                           !
@@ -220,7 +220,7 @@ export function ToursPageContent() {
                   </SheetTrigger>
                   <SheetContent side="left" className="w-[300px]">
                     <SheetHeader>
-                      <SheetTitle>Filters</SheetTitle>
+                      <SheetTitle>Шүүлтүүр</SheetTitle>
                     </SheetHeader>
                     <div className="mt-6">
                       <FilterContent />
@@ -238,12 +238,12 @@ export function ToursPageContent() {
                 </div>
               ) : (
                 <div className="rounded-xl border border-border bg-card p-12 text-center">
-                  <p className="text-lg font-medium text-foreground">No tours found</p>
+                  <p className="text-lg font-medium text-foreground">Аялал олдсонгүй</p>
                   <p className="mt-2 text-muted-foreground">
-                    Try adjusting your filters to find available tours.
+                    Боломжит аяллыг олохын тулд шүүлтүүрээ өөрчилж үзнэ үү.
                   </p>
                   <Button variant="outline" onClick={clearFilters} className="mt-4 bg-transparent">
-                    Clear Filters
+                    Шүүлтүүрийг арилгах
                   </Button>
                 </div>
               )}
@@ -256,7 +256,7 @@ export function ToursPageContent() {
       <section className="border-t border-border bg-muted/50 py-12">
         <div className="container mx-auto px-4">
           <h2 className="mb-8 text-center text-2xl font-bold text-foreground">
-            Enhance Your Experience
+            Туршлагаа нэмэгдүүлээрэй
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {additionalServices.map((service) => {
@@ -273,8 +273,8 @@ export function ToursPageContent() {
                     <p className="mb-2 text-sm text-muted-foreground">{service.description}</p>
                     <p className="font-semibold text-accent">
                       ${service.price}
-                      {service.priceType === 'per-day' && '/day'}
-                      {service.priceType === 'per-person' && '/person'}
+                      {service.priceType === 'per-day' && '/өдөр'}
+                      {service.priceType === 'per-person' && '/хүн'}
                     </p>
                   </CardContent>
                 </Card>

@@ -5,76 +5,76 @@ export const tours: Tour[] = [
   {
     id: '1',
     slug: 'gobi-desert-adventure',
-    name: 'Gobi Desert Adventure',
-    description: 'Experience the raw beauty of the Gobi Desert, one of the world\'s most spectacular desert landscapes. Journey through vast sand dunes, discover dinosaur fossils, and witness breathtaking sunsets over the endless horizon. Stay with local nomadic families and learn about their ancient way of life that has remained unchanged for centuries.',
-    shortDescription: 'Explore the legendary Gobi Desert with its stunning sand dunes, ancient fossils, and nomadic culture.',
+    name: 'Говь цөлийн адал явдал',
+    description: 'Дэлхийн хамгийн гайхамшигтай цөлүүдийн нэг болох Говийн онгон төрхийг мэдрээрэй. Асар уудам манхнаар аялж, үлэг гүрвэлийн олдворуудтай танилцан, хязгааргүй тэнгэрийн хаяан дээрх нар жаргах үзэгдлийг бишрээрэй. Орон нутгийн нүүдэлчин гэр бүлтэй хамт амьдарч, зуун зуунаар хадгалагдсан амьдралын хэв маягийг мэдрэнэ.',
+    shortDescription: 'Говийн домогт манхан, эртний олдвор, нүүдэлчдийн соёлыг мэдрэх аялал.',
     duration: 5,
     price: 890,
     images: ['/images/gobi-1.jpg', '/images/gobi-2.jpg', '/images/gobi-3.jpg'],
     highlights: [
-      'Khongoryn Els - the Singing Dunes',
-      'Flaming Cliffs dinosaur fossil site',
-      'Yol Valley ice canyon',
-      'Authentic nomad family stay',
-      'Camel riding experience'
+      'Хонгорын элс – Дуулдаг манхан',
+      'Баянзагийн үлэг гүрвэлийн олдворын газар',
+      'Ёлын ам – мөсөн хавцал',
+      'Нүүдэлчин айлд буух туршлага',
+      'Тэмээ унах'
     ],
     included: [
-      'All transportation in 4x4 vehicles',
-      '4 nights accommodation (ger camps & nomad family)',
-      'Professional English-speaking guide',
-      'All meals during the tour',
-      'Entrance fees to national parks',
-      'Camel riding'
+      '4x4 тээврийн хэрэгсэлтэй бүх тээвэр',
+      '4 шөнө байрлах (гэр бааз, нүүдэлчин айл)',
+      'Мэргэжлийн англи хэлтэй хөтөч',
+      'Аяллын турш бүх хоол',
+      'Үндэсний паркуудын тасалбар',
+      'Тэмээ унах'
     ],
     notIncluded: [
-      'International flights',
-      'Travel insurance',
-      'Personal expenses',
-      'Tips for guide and driver',
-      'Alcoholic beverages'
+      'Олон улсын нислэг',
+      'Аяллын даатгал',
+      'Хувийн зардал',
+      'Хөтөч, жолоочийн урамшуулал',
+      'Согтууруулах ундаа'
     ],
     itinerary: [
       {
         day: 1,
-        title: 'Ulaanbaatar to Yol Valley',
-        description: 'Depart from Ulaanbaatar and drive through the vast Mongolian steppe to Yol Valley in Gobi Gurvansaikhan National Park. Explore the narrow ice canyon and spot local wildlife.',
+        title: 'Улаанбаатар – Ёлын ам',
+        description: 'Улаанбаатараас гарч Монголын уудам талыг туулан Говийн гурван сайхан үндэсний паркийн Ёлын амд хүрнэ. Нарийн мөсөн хавцлыг судалж, зэрлэг амьтдыг ажиглана.',
         meals: ['lunch', 'dinner'],
-        accommodation: 'Ger Camp'
+        accommodation: 'Гэр бааз'
       },
       {
         day: 2,
-        title: 'Khongoryn Els Sand Dunes',
-        description: 'Travel to the magnificent Khongoryn Els, also known as the Singing Dunes. Experience camel riding and climb the dunes for a spectacular sunset view.',
+        title: 'Хонгорын элсний манхан',
+        description: 'Дуулдаг манханаар алдарт Хонгорын элсэнд хүрч, тэмээ унаж, манханд авирч гайхамшигтай нар жаргахыг үзнэ.',
         meals: ['breakfast', 'lunch', 'dinner'],
-        accommodation: 'Ger Camp'
+        accommodation: 'Гэр бааз'
       },
       {
         day: 3,
-        title: 'Flaming Cliffs',
-        description: 'Visit the world-famous Flaming Cliffs where the first dinosaur eggs were discovered. Explore the red sandstone formations that glow at sunset.',
+        title: 'Баянзаг (Улаан эрэг)',
+        description: 'Дэлхийд анх үлэг гүрвэлийн өндөг олдсон Баянзагийн улаан хадан тогтоцтой танилцана.',
         meals: ['breakfast', 'lunch', 'dinner'],
-        accommodation: 'Nomad Family'
+        accommodation: 'Нүүдэлчин айл'
       },
       {
         day: 4,
-        title: 'Nomadic Life Experience',
-        description: 'Spend the day with a nomadic family. Learn about their daily life, try traditional dairy products, and participate in herding activities.',
+        title: 'Нүүдэлчдийн амьдралын туршлага',
+        description: 'Нүүдэлчин айлд бүтэн өдөр өнгөрүүлж, ахуй амьдралтай нь танилцан, уламжлалт сүүн бүтээгдэхүүн амталж, мал маллах ажилд оролцоно.',
         meals: ['breakfast', 'lunch', 'dinner'],
-        accommodation: 'Nomad Family'
+        accommodation: 'Нүүдэлчин айл'
       },
       {
         day: 5,
-        title: 'Return to Ulaanbaatar',
-        description: 'Begin the journey back to Ulaanbaatar with stops at scenic viewpoints along the way. Arrive in the evening.',
+        title: 'Улаанбаатар руу буцах',
+        description: 'Зам дагуу үзэсгэлэнт цэгүүдээр саатаж, Улаанбаатар руу буцна. Орой хүрэлцэн ирнэ.',
         meals: ['breakfast', 'lunch'],
-        accommodation: 'End of tour'
+        accommodation: 'Аялал дуусав'
       }
     ],
     category: 'adventure',
     difficulty: 'moderate',
     maxGroupSize: 12,
-    startLocation: 'Ulaanbaatar',
-    endLocation: 'Ulaanbaatar',
+    startLocation: 'Улаанбаатар',
+    endLocation: 'Улаанбаатар',
     availableDates: generateAvailableDates(30),
     rating: 4.9,
     reviewCount: 127
@@ -82,61 +82,61 @@ export const tours: Tour[] = [
   {
     id: '2',
     slug: 'nomadic-culture-tour',
-    name: 'Nomadic Culture Tour',
-    description: 'Immerse yourself in the authentic nomadic lifestyle that has defined Mongolia for thousands of years. This cultural journey takes you deep into the heart of the Mongolian steppe, where you\'ll live alongside nomadic families, learn traditional crafts, and experience the timeless hospitality of the Mongolian people.',
-    shortDescription: 'Live with nomadic families and experience the authentic Mongolian lifestyle and traditions.',
+    name: 'Нүүдэлчдийн соёлын аялал',
+    description: 'Мянга мянган жил Монголыг тодорхойлж ирсэн нүүдэлчдийн жинхэнэ ахуйд шимтээрэй. Энэхүү соёлын аяллаар та Монголын тал нутгийн зүрхэнд хүрч, нүүдэлчин айлтай хамт амьдарч, уламжлалт гар урлал, ёс заншлыг өөрийн биеэр мэдэрнэ.',
+    shortDescription: 'Нүүдэлчин айлтай хамт амьдарч, Монголын уламжлал, ахуйтай танилцана.',
     duration: 3,
     price: 490,
     images: ['/images/nomad-1.jpg', '/images/nomad-2.jpg', '/images/nomad-3.jpg'],
     highlights: [
-      'Stay with authentic nomad families',
-      'Learn traditional crafts and cooking',
-      'Horse riding on the open steppe',
-      'Traditional music and throat singing',
-      'Visit to ancient monastery'
+      'Жинхэнэ нүүдэлчин айлд буух',
+      'Уламжлалт гар урлал, хоол хийхийг сурах',
+      'Тал нутгаар морь унах',
+      'Уламжлалт хөгжим, хөөмий сонсох',
+      'Эртний хийд, сүмтэй танилцах'
     ],
     included: [
-      'All transportation',
-      '2 nights with nomad families',
-      'English-speaking cultural guide',
-      'All meals (traditional Mongolian cuisine)',
-      'Horse riding experience',
-      'Traditional costume try-on'
+      'Бүх тээвэр',
+      'Нүүдэлчин айлд 2 шөнө байрлах',
+      'Англи хэлтэй соёлын хөтөч',
+      'Аяллын турш бүх хоол (Монгол уламжлалт хоол)',
+      'Морь унах туршлага',
+      'Уламжлалт хувцас өмсөх'
     ],
     notIncluded: [
-      'International flights',
-      'Travel insurance',
-      'Personal expenses',
-      'Tips'
+      'Олон улсын нислэг',
+      'Аяллын даатгал',
+      'Хувийн зардал',
+      'Урамшуулал'
     ],
     itinerary: [
       {
         day: 1,
-        title: 'Journey to the Steppe',
-        description: 'Travel from Ulaanbaatar to the central Mongolian steppe. Meet your host nomad family and settle into their traditional ger. Evening introduction to nomadic life.',
+        title: 'Тал нутаг руу аялал',
+        description: 'Улаанбаатараас төвийн тал руу аялж, нүүдэлчин айлтай танилцан уламжлалт гэрт байрлана. Орой нүүдэлчдийн ахуйтай танилцах оршил хөтөлбөр.',
         meals: ['lunch', 'dinner'],
-        accommodation: 'Nomad Family Ger'
+        accommodation: 'Нүүдэлчин айлын гэр'
       },
       {
         day: 2,
-        title: 'Nomadic Life Immersion',
-        description: 'Full day experiencing nomadic activities: milking animals, making dairy products, horse riding, and learning traditional crafts. Evening cultural performance.',
+        title: 'Нүүдэлчдийн амьдралд оролцох өдөр',
+        description: 'Мал саах, сүүн бүтээгдэхүүн хийх, морь унах, уламжлалт гар урлал зэрэг өдөр тутмын ажлуудыг туршина. Орой соёлын үзүүлбэртэй.',
         meals: ['breakfast', 'lunch', 'dinner'],
-        accommodation: 'Nomad Family Ger'
+        accommodation: 'Нүүдэлчин айлын гэр'
       },
       {
         day: 3,
-        title: 'Monastery Visit & Return',
-        description: 'Visit a local Buddhist monastery in the morning. Learn about spiritual traditions, then return to Ulaanbaatar with memories of authentic Mongolian hospitality.',
+        title: 'Хийдээр зочлоод буцах',
+        description: 'Өглөө орон нутгийн хийдээр зочилж, шашин соёлын уламжлалтай танилцана. Дараа нь Улаанбаатар руу буцна.',
         meals: ['breakfast', 'lunch'],
-        accommodation: 'End of tour'
+        accommodation: 'Аялал дуусав'
       }
     ],
     category: 'cultural',
     difficulty: 'easy',
     maxGroupSize: 8,
-    startLocation: 'Ulaanbaatar',
-    endLocation: 'Ulaanbaatar',
+    startLocation: 'Улаанбаатар',
+    endLocation: 'Улаанбаатар',
     availableDates: generateAvailableDates(45),
     rating: 4.8,
     reviewCount: 89
@@ -144,92 +144,92 @@ export const tours: Tour[] = [
   {
     id: '3',
     slug: 'mountain-lake-expedition',
-    name: 'Mountain & Lake Expedition',
-    description: 'Discover the pristine wilderness of northern Mongolia on this epic journey to crystal-clear lakes and majestic mountains. Trek through ancient forests, fish in untouched rivers, and witness the stunning beauty of Khövsgöl Lake, often called the "Blue Pearl of Mongolia."',
-    shortDescription: 'Trek through pristine wilderness to discover Mongolia\'s stunning lakes and mountain landscapes.',
+    name: 'Уул, нуурын экспедиц',
+    description: 'Хойд Монголын онгон байгаль, тунгалаг нуур, сүрлэг уулс руу хийх гайхалтай аялал. Эртний ойгоор аялж, цэнгэг голд загасчилж, "Монголын хөх сувд" хэмээн нэрлэгддэг Хөвсгөл нуурын үзэсгэлэнг мэдэрнэ.',
+    shortDescription: 'Онгон байгалийг туулж, Монголын үзэсгэлэнт нуур, уулсыг нээнэ.',
     duration: 7,
     price: 1290,
     images: ['/images/lake-1.jpg', '/images/lake-2.jpg', '/images/lake-3.jpg'],
     highlights: [
-      'Khövsgöl Lake - Blue Pearl of Mongolia',
-      'Reindeer herder visit',
-      'Mountain trekking',
-      'Fishing in pristine rivers',
-      'Wildlife spotting',
-      'Taiga forest exploration'
+      'Хөвсгөл нуур – Монголын хөх сувд',
+      'Цаа бугын малчинтай уулзах',
+      'Уулын треккинг',
+      'Цэнгэг голд загасчлах',
+      'Зэрлэг амьтан ажиглах',
+      'Тайгын ойгоор судлах'
     ],
     included: [
-      'All transportation including domestic flight',
-      '6 nights accommodation (ger camps & tents)',
-      'Professional guide and cook',
-      'All meals',
-      'Trekking equipment',
-      'Fishing permits',
-      'Boat trip on Khövsgöl Lake'
+      'Дотоод нислэг орсон бүх тээвэр',
+      '6 шөнө байрлах (гэр бааз, майхан)',
+      'Мэргэжлийн хөтөч, тогооч',
+      'Бүх хоол',
+      'Треккингийн хэрэгсэл',
+      'Загас барих зөвшөөрөл',
+      'Хөвсгөл нуур дээрх завины аялал'
     ],
     notIncluded: [
-      'International flights',
-      'Travel insurance',
-      'Personal trekking gear',
-      'Tips',
-      'Alcoholic beverages'
+      'Олон улсын нислэг',
+      'Аяллын даатгал',
+      'Хувийн треккингийн хэрэгсэл',
+      'Урамшуулал',
+      'Согтууруулах ундаа'
     ],
     itinerary: [
       {
         day: 1,
-        title: 'Fly to Mörön',
-        description: 'Morning flight from Ulaanbaatar to Mörön. Drive to Khövsgöl Lake and settle into lakeside ger camp.',
+        title: 'Мөрөн рүү нисэх',
+        description: 'Өглөө Улаанбаатараас Мөрөн рүү нисээд Хөвсгөл нуурын эрэг дээрх гэр баазад очно.',
         meals: ['lunch', 'dinner'],
-        accommodation: 'Ger Camp'
+        accommodation: 'Гэр бааз'
       },
       {
         day: 2,
-        title: 'Khövsgöl Lake Exploration',
-        description: 'Full day exploring the lake by boat. Visit pristine beaches, swim in crystal-clear waters, and enjoy lakeside picnic.',
+        title: 'Хөвсгөл нуурын аялал',
+        description: 'Өдөржин завиар аялж, тунгалаг эрэгт амарч, нуурын усанд сэлж, эрэг дээр зоог барина.',
         meals: ['breakfast', 'lunch', 'dinner'],
-        accommodation: 'Ger Camp'
+        accommodation: 'Гэр бааз'
       },
       {
         day: 3,
-        title: 'Trek to Taiga',
-        description: 'Begin trekking into the mountainous taiga region. Set up camp in a scenic meadow surrounded by ancient larch forests.',
+        title: 'Тайга руу треккинг',
+        description: 'Уулын тайгын бүс рүү треккинг эхлүүлж, эртний шинэс ойгоор хүрээлэгдсэн сайхан нутагт майхан барина.',
         meals: ['breakfast', 'lunch', 'dinner'],
-        accommodation: 'Tent Camp'
+        accommodation: 'Майхан'
       },
       {
         day: 4,
-        title: 'Reindeer Herder Visit',
-        description: 'Trek to meet the Tsaatan reindeer herders, one of the last remaining nomadic reindeer cultures in the world.',
+        title: 'Цаатан бугачидтай уулзах',
+        description: 'Дэлхий дээрх цөөн үлдсэн цаа бугын нүүдэлчдийн нэг болох Цаатан бугачидтай уулзана.',
         meals: ['breakfast', 'lunch', 'dinner'],
-        accommodation: 'Tent Camp'
+        accommodation: 'Майхан'
       },
       {
         day: 5,
-        title: 'Mountain Summit',
-        description: 'Climb to a mountain summit for panoramic views. Afternoon fishing in pristine mountain streams.',
+        title: 'Уулын оргил',
+        description: 'Уулын оргилд гарч панорама үзэмж тольдоно. Үдээс хойш уулын цэнгэг голд загасчилна.',
         meals: ['breakfast', 'lunch', 'dinner'],
-        accommodation: 'Tent Camp'
+        accommodation: 'Майхан'
       },
       {
         day: 6,
-        title: 'Return to Khövsgöl',
-        description: 'Trek back to Khövsgöl Lake. Relax at the ger camp and enjoy a farewell dinner.',
+        title: 'Хөвсгөл нуур руу буцах',
+        description: 'Треккингээ дуусган Хөвсгөл нуурт буцаж ирээд гэр баазад амарч, үдэлтийн зоог барина.',
         meals: ['breakfast', 'lunch', 'dinner'],
-        accommodation: 'Ger Camp'
+        accommodation: 'Гэр бааз'
       },
       {
         day: 7,
-        title: 'Return to Ulaanbaatar',
-        description: 'Morning drive to Mörön and flight back to Ulaanbaatar. Tour ends upon arrival.',
+        title: 'Улаанбаатар руу буцах',
+        description: 'Өглөө Мөрөн рүү явж, нислэгээр Улаанбаатар буцна. Ирээд аялал дуусна.',
         meals: ['breakfast', 'lunch'],
-        accommodation: 'End of tour'
+        accommodation: 'Аялал дуусав'
       }
     ],
     category: 'nature',
     difficulty: 'challenging',
     maxGroupSize: 10,
-    startLocation: 'Ulaanbaatar',
-    endLocation: 'Ulaanbaatar',
+    startLocation: 'Улаанбаатар',
+    endLocation: 'Улаанбаатар',
     availableDates: generateAvailableDates(20),
     rating: 4.9,
     reviewCount: 64
@@ -240,29 +240,29 @@ export const tours: Tour[] = [
 export const additionalServices: AdditionalService[] = [
   {
     id: 'airport-pickup',
-    name: 'Airport Pickup',
-    description: 'Comfortable private transfer from Chinggis Khaan International Airport to your hotel',
+    name: 'Нисэх буудлын угталт',
+    description: 'Чингис хаан олон улсын нисэх буудлаас зочид буудал хүртэлх хувийн хүргэлт',
     price: 50,
     priceType: 'fixed'
   },
   {
     id: 'translator',
-    name: 'Personal Translator',
-    description: 'Professional translator for seamless communication throughout your journey',
+    name: 'Хувийн орчуулагч',
+    description: 'Аяллын турш харилцааг хялбарчлах мэргэжлийн орчуулагч',
     price: 80,
     priceType: 'per-day'
   },
   {
     id: 'luxury-vehicle',
-    name: 'Luxury Vehicle Upgrade',
-    description: 'Upgrade to a premium Land Cruiser with extra comfort features',
+    name: 'Тансаг тээврийн шинэчлэл',
+    description: 'Нэмэлт тав тухтай Land Cruiser-д шинэчилнэ',
     price: 120,
     priceType: 'per-day'
   },
   {
     id: 'photography',
-    name: 'Photography Package',
-    description: 'Professional photographer to capture your adventure memories',
+    name: 'Гэрэл зургийн багц',
+    description: 'Аяллын дурсамжийг буулгах мэргэжлийн зурагчин',
     price: 200,
     priceType: 'per-day'
   }
@@ -273,37 +273,37 @@ export const testimonials: Testimonial[] = [
   {
     id: '1',
     name: 'Sarah Johnson',
-    country: 'United States',
+    country: 'АНУ',
     rating: 5,
-    text: 'The Gobi Desert Adventure was absolutely life-changing! Our guide was incredibly knowledgeable, and staying with the nomad family was the highlight of my trip. NomadWay made everything seamless.',
-    tourName: 'Gobi Desert Adventure',
+    text: '“Говь цөлийн адал явдал” аялал үнэхээр гайхалтай байлаа! Манай хөтөч маш мэдлэгтэй, нүүдэлчин айлд буусан нь аяллын хамгийн дурсамжтай хэсэг болсон. NomadWay бүхнийг маш сайхан зохион байгуулсан.',
+    tourName: 'Говь цөлийн адал явдал',
     date: '2024-08-15'
   },
   {
     id: '2',
     name: 'Thomas Mueller',
-    country: 'Germany',
+    country: 'Герман',
     rating: 5,
-    text: 'I have traveled extensively, but Mongolia was unlike anything I have experienced. The Mountain & Lake Expedition exceeded all expectations. The landscapes are breathtaking and unspoiled.',
-    tourName: 'Mountain & Lake Expedition',
+    text: 'Би олон оронд аялсан ч Монгол үнэхээр онцгой байсан. “Уул, нуурын экспедиц” аялал бүх хүлээлтээс давлаа. Байгаль үнэхээр цэвэр, сүрлэг.',
+    tourName: 'Уул, нуурын экспедиц',
     date: '2024-07-22'
   },
   {
     id: '3',
     name: 'Emma Chen',
-    country: 'Australia',
+    country: 'Австрали',
     rating: 5,
-    text: 'The Nomadic Culture Tour gave me a deep appreciation for Mongolian traditions. Learning to make airag and riding horses across the steppe - memories I will cherish forever.',
-    tourName: 'Nomadic Culture Tour',
+    text: '“Нүүдэлчдийн соёлын аялал” намайг Монголын уламжлалыг гүнзгий ойлгоход тусалсан. Айраг хийх, тал нутгаар морь унах зэрэг нь мартагдашгүй дурсамж болсон.',
+    tourName: 'Нүүдэлчдийн соёлын аялал',
     date: '2024-09-05'
   },
   {
     id: '4',
     name: 'Pierre Dubois',
-    country: 'France',
+    country: 'Франц',
     rating: 4,
-    text: 'Excellent organization and wonderful guides. The Gobi is truly magical at sunset. Would highly recommend NomadWay to anyone wanting an authentic Mongolian experience.',
-    tourName: 'Gobi Desert Adventure',
+    text: 'Төгс зохион байгуулалт, гайхамшигтай хөтөч нар. Говийн нар жаргах үзэгдэл үнэхээр ид шидтэй. Монголын жинхэнэ туршлага хүссэн хүнд NomadWay-г зөвлөе.',
+    tourName: 'Говь цөлийн адал явдал',
     date: '2024-06-18'
   }
 ]
@@ -312,51 +312,51 @@ export const testimonials: Testimonial[] = [
 export const faqs: FAQ[] = [
   {
     id: '1',
-    question: 'What is the best time to visit Mongolia?',
-    answer: 'The best time to visit Mongolia is from June to September when temperatures are pleasant (15-25°C) and the landscapes are at their most beautiful. July is particularly special due to the Naadam Festival. However, each season offers unique experiences - winter provides snow-covered landscapes and eagle hunting festivals.',
-    category: 'General'
+    question: 'Монголд аялахад хамгийн тохиромжтой үе хэзээ вэ?',
+    answer: 'Хамгийн тохиромжтой улирал нь 6-9 дүгээр сар бөгөөд цаг агаар тааламжтай (15–25°C) байдаг. 7 дугаар сард Наадам болдог тул онцгой. Гэхдээ улирал бүр өөрийн онцлогтой: өвөл цастай байгаль, бүргэдийн баяр зэрэг сонирхолтой арга хэмжээнүүдтэй.',
+    category: 'Ерөнхий'
   },
   {
     id: '2',
-    question: 'Do I need a visa to visit Mongolia?',
-    answer: 'Visa requirements vary by nationality. Citizens of many countries can stay visa-free for up to 30 days, including the USA, EU countries, Australia, and Canada. We recommend checking with your local Mongolian embassy for the most current requirements.',
-    category: 'General'
+    question: 'Монголд ирэхэд виз хэрэгтэй юу?',
+    answer: 'Визийн шаардлага таны иргэншлээс шалтгаална. АНУ, ЕХ, Австрали, Канад зэрэг олон улсын иргэд 30 хүртэл хоног визгүй зорчих боломжтой. Хамгийн сүүлийн шаардлагыг Монголын ЭСЯ-наас шалгахыг зөвлөе.',
+    category: 'Ерөнхий'
   },
   {
     id: '3',
-    question: 'What should I pack for the tour?',
-    answer: 'We recommend layers of clothing as temperatures can vary greatly between day and night. Essential items include: comfortable walking shoes, sunscreen, sunglasses, a hat, warm jacket for evenings, camera, and any personal medications. A detailed packing list will be provided upon booking.',
-    category: 'Preparation'
+    question: 'Аялалд юу авч явах вэ?',
+    answer: 'Өдөр, шөнийн температурын зөрүү их тул давхарлаж өмсөх хувцас авчрахыг зөвлөе. Тав тухтай гутал, нарны тос, нарны шил, малгай, оройн дулаан хүрэм, камер болон хэрэгтэй эм бэлдмэлүүдээ авчраарай. Дэлгэрэнгүй жагсаалтыг захиалга баталгаажсаны дараа өгнө.',
+    category: 'Бэлтгэл'
   },
   {
     id: '4',
-    question: 'How physically demanding are the tours?',
-    answer: 'Our tours range from easy to challenging. The Nomadic Culture Tour is suitable for all fitness levels, while the Mountain & Lake Expedition requires good physical condition for trekking. Each tour description includes a difficulty rating to help you choose.',
-    category: 'Tours'
+    question: 'Аяллуудын биеийн ачаалал ямар вэ?',
+    answer: 'Манай аяллууд хялбараас хүнд хүртэл түвшинтэй. Нүүдэлчдийн соёлын аялал бүх түвшинд тохиромжтой бол “Уул, нуурын экспедиц” нь треккинг шаарддаг тул биеийн сайн бэлтгэлтэй байх хэрэгтэй. Аялал бүрийн тайлбарт хүндийн зэрэг тэмдэглэгдсэн.',
+    category: 'Аяллууд'
   },
   {
     id: '5',
-    question: 'What is the accommodation like?',
-    answer: 'Accommodation varies by tour and includes traditional gers (yurts) at tourist camps, stays with nomadic families in their gers, and tent camping in remote areas. All accommodations are clean and comfortable, offering an authentic Mongolian experience.',
-    category: 'Tours'
+    question: 'Байрлах нөхцөл ямар байдаг вэ?',
+    answer: 'Аяллаас хамааран жуулчны баазын уламжлалт гэр, нүүдэлчин айлын гэр, мөн алслагдсан бүсэд майхан байрлах зэрэг хувилбаруудтай. Бүх байр цэвэр, тухтай бөгөөд Монголын жинхэнэ туршлагыг мэдрүүлнэ.',
+    category: 'Аяллууд'
   },
   {
     id: '6',
-    question: 'Is it safe to travel in Mongolia?',
-    answer: 'Mongolia is one of the safest countries in Asia for travelers. Violent crime is rare, especially in rural areas. Our experienced guides ensure your safety throughout the journey. We recommend standard travel precautions and comprehensive travel insurance.',
-    category: 'Safety'
+    question: 'Монголд аялах нь аюулгүй юу?',
+    answer: 'Монгол нь аялагчдад ээлтэй, Азийн хамгийн аюулгүй орны нэг. Ялангуяа хөдөө орон нутагт ноцтой гэмт хэрэг ховор. Манай туршлагатай хөтөч таны аюулгүй байдлыг хангана. Стандарт аяллын урьдчилан сэргийлэлт болон бүрэн даатгал зөвлөе.',
+    category: 'Аюулгүй байдал'
   },
   {
     id: '7',
-    question: 'What is the cancellation policy?',
-    answer: 'Cancellations made 30+ days before departure receive a full refund minus processing fees. Cancellations 15-29 days before receive a 50% refund. Within 14 days, no refund is available. We strongly recommend travel insurance to cover unexpected cancellations.',
-    category: 'Booking'
+    question: 'Цуцлалтын бодлого ямар вэ?',
+    answer: 'Явах өдрөөс 30+ хоногийн өмнө цуцалбал үйлчилгээний шимтгэл хасагдаад бүрэн буцаан олголттой. 15–29 хоногийн өмнө цуцалбал 50% буцаан олгоно. 14 хоногоос дотогш бол буцаан олголтгүй. Гэнэтийн цуцлалтад даатгалтай байхыг зөвлөе.',
+    category: 'Захиалга'
   },
   {
     id: '8',
-    question: 'Can I customize a tour?',
-    answer: 'Absolutely! We specialize in creating custom itineraries tailored to your interests, schedule, and budget. Contact us with your requirements, and our team will design your perfect Mongolian adventure.',
-    category: 'Booking'
+    question: 'Аяллыг захиалгаар өөрчилж болох уу?',
+    answer: 'Мэдээж! Бид таны сонирхол, цагийн хуваарь, төсөвт нийцсэн захиалгат маршрутыг боловсруулна. Хүсэлтээ илгээвэл манай баг таны төгс Монгол аяллыг зохион байгуулна.',
+    category: 'Захиалга'
   }
 ]
 
@@ -365,7 +365,7 @@ export const mockBookings: Booking[] = [
   {
     id: 'BK001',
     tourId: '1',
-    tourName: 'Gobi Desert Adventure',
+    tourName: 'Говь цөлийн адал явдал',
     startDate: '2024-07-15',
     numberOfPeople: 2,
     additionalServices: ['airport-pickup'],
@@ -385,7 +385,7 @@ export const mockBookings: Booking[] = [
   {
     id: 'BK002',
     tourId: '2',
-    tourName: 'Nomadic Culture Tour',
+    tourName: 'Нүүдэлчдийн соёлын аялал',
     startDate: '2024-08-20',
     numberOfPeople: 4,
     additionalServices: ['translator', 'airport-pickup'],
@@ -405,7 +405,7 @@ export const mockBookings: Booking[] = [
   {
     id: 'BK003',
     tourId: '3',
-    tourName: 'Mountain & Lake Expedition',
+    tourName: 'Уул, нуурын экспедиц',
     startDate: '2024-09-01',
     numberOfPeople: 1,
     additionalServices: ['photography'],

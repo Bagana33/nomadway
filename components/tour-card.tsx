@@ -65,7 +65,7 @@ export function TourCard({ tour, featured = false }: TourCardProps) {
             </div>
             <div className="flex items-center gap-1.5">
               <Users className="h-4 w-4" />
-              <span>Max {tour.maxGroupSize}</span>
+              <span>Дээд {tour.maxGroupSize}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
@@ -77,14 +77,14 @@ export function TourCard({ tour, featured = false }: TourCardProps) {
         
         <CardFooter className="flex items-center justify-between border-t border-border bg-muted/30 px-5 py-4">
           <div>
-            <span className="text-sm text-muted-foreground">From</span>
+            <span className="text-sm text-muted-foreground">Эхлэх үнэ</span>
             <p className="text-2xl font-bold text-foreground">
               ${tour.price}
-              <span className="text-sm font-normal text-muted-foreground">/person</span>
+              <span className="text-sm font-normal text-muted-foreground">/хүн</span>
             </p>
           </div>
           <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-            <Link href={`/tours/${tour.slug}`}>View Details</Link>
+            <Link href={`/tours/${tour.slug}`}>Дэлгэрэнгүй</Link>
           </Button>
         </CardFooter>
       </div>

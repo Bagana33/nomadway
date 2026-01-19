@@ -48,6 +48,13 @@ const statusIcons: Record<Booking["status"], React.ReactNode> = {
   completed: <CheckCircle className="h-3 w-3" />,
 };
 
+const statusLabels: Record<Booking["status"], string> = {
+  pending: "Хүлээгдэж байна",
+  confirmed: "Баталгаажсан",
+  cancelled: "Цуцлагдсан",
+  completed: "Дууссан",
+};
+
 const Loading = () => null;
 
 export default function AdminBookingsPage() {
@@ -68,7 +75,7 @@ export default function AdminBookingsPage() {
 
   const getTourName = (tourId: string) => {
     const tour = mockTours.find((t) => t.id === tourId);
-    return tour?.name || "Unknown Tour";
+    return tour?.name || "Тодорхойгүй аялал";
   };
 
   const updateBookingStatus = (bookingId: string, newStatus: Booking["status"]) => {
@@ -81,20 +88,20 @@ export default function AdminBookingsPage() {
     <Suspense fallback={<Loading />}>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Bookings</h1>
-          <p className="text-muted-foreground">Manage all tour bookings</p>
+          <h1 className="text-3xl font-bold tracking-tight">Захиалгууд</h1>
+          <p className="text-muted-foreground">Бүх аяллын захиалгыг удирдах</p>
         </div>
 
         <Card>
           <CardHeader>
-            <CardTitle>All Bookings</CardTitle>
+            <CardTitle>Бүх захиалга</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="mb-6 flex flex-col gap-4 sm:flex-row">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
-                  placeholder="Search by name, email, or booking ID..."
+                  placeholder="Нэр, и-мэйл эсвэл захиалгын дугаараар хайх..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-9"
@@ -102,14 +109,14 @@ export default function AdminBookingsPage() {
               </div>
               <Select value={statusFilter} onValueChange={setStatusFilter}>
                 <SelectTrigger className="w-full sm:w-[180px]">
-                  <SelectValue placeholder="Filter by status" />
+                  <SelectValue placeholder="Төлөвөөр шүүх" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Statuses</SelectItem>
-                  <SelectItem value="pending">Pending</SelectItem>
-                  <SelectItem value="confirmed">Confirmed</SelectItem>
-                  <SelectItem value="cancelled">Cancelled</SelectItem>
-                  <SelectItem value="completed">Completed</SelectItem>
+                  <SelectItem value="all">Бүх төлөв</SelectItem>
+                  <SelectItem value="pending">Хүлээгдэж байна</SelectItem>
+                  <SelectItem value="confirmed">Баталгаажсан</SelectItem>
+                  <SelectItem value="cancelled">Цуцлагдсан</SelectItem>
+                  <SelectItem value="completed">Дууссан</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -118,21 +125,21 @@ export default function AdminBookingsPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Booking ID</TableHead>
-                    <TableHead>Customer</TableHead>
-                    <TableHead className="hidden md:table-cell">Tour</TableHead>
-                    <TableHead className="hidden sm:table-cell">Date</TableHead>
-                    <TableHead className="hidden lg:table-cell">Guests</TableHead>
-                    <TableHead>Total</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
+                    <TableHead>Захиалгын дугаар</TableHead>
+                    <TableHead>Захиалагч</TableHead>
+                    <TableHead className="hidden md:table-cell">Аялал</TableHead>
+                    <TableHead className="hidden sm:table-cell">Огноо</TableHead>
+                    <TableHead className="hidden lg:table-cell">Зочид</TableHead>
+                    <TableHead>Нийт</TableHead>
+                    <TableHead>Төлөв</TableHead>
+                    <TableHead className="text-right">Үйлдэл</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {filteredBookings.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={8} className="text-center py-8 text-muted-foreground">
-                        No bookings found
+                        Захиалга олдсонгүй
                       </TableCell>
                     </TableRow>
                   ) : (
@@ -169,7 +176,7 @@ export default function AdminBookingsPage() {
                             className={`${statusColors[booking.status]} flex w-fit items-center gap-1`}
                           >
                             {statusIcons[booking.status]}
-                            <span className="capitalize">{booking.status}</span>
+                            <span>{statusLabels[booking.status]}</span>
                           </Badge>
                         </TableCell>
                         <TableCell className="text-right">
@@ -177,57 +184,57 @@ export default function AdminBookingsPage() {
                             <DialogTrigger asChild>
                               <Button variant="ghost" size="icon">
                                 <Eye className="h-4 w-4" />
-                                <span className="sr-only">View booking details</span>
+                                <span className="sr-only">Захиалгын дэлгэрэнгүй</span>
                               </Button>
                             </DialogTrigger>
                             <DialogContent className="max-w-md">
                               <DialogHeader>
-                                <DialogTitle>Booking Details</DialogTitle>
+                                <DialogTitle>Захиалгын дэлгэрэнгүй</DialogTitle>
                                 <DialogDescription>
-                                  Booking ID: {booking.id}
+                                  Захиалгын дугаар: {booking.id}
                                 </DialogDescription>
                               </DialogHeader>
                               <div className="space-y-4">
                                 <div className="grid grid-cols-2 gap-4">
                                   <div>
-                                    <p className="text-sm text-muted-foreground">Customer</p>
+                                    <p className="text-sm text-muted-foreground">Захиалагч</p>
                                     <p className="font-medium">
                                       {booking.customer.firstName} {booking.customer.lastName}
                                     </p>
                                   </div>
                                   <div>
-                                    <p className="text-sm text-muted-foreground">Email</p>
+                                    <p className="text-sm text-muted-foreground">И-мэйл</p>
                                     <p className="font-medium">{booking.customer.email}</p>
                                   </div>
                                   <div>
-                                    <p className="text-sm text-muted-foreground">Phone</p>
+                                    <p className="text-sm text-muted-foreground">Утас</p>
                                     <p className="font-medium">{booking.customer.phone}</p>
                                   </div>
                                   <div>
-                                    <p className="text-sm text-muted-foreground">Guests</p>
+                                    <p className="text-sm text-muted-foreground">Зочид</p>
                                     <p className="font-medium">{booking.numberOfPeople}</p>
                                   </div>
                                   <div>
-                                    <p className="text-sm text-muted-foreground">Start Date</p>
+                                    <p className="text-sm text-muted-foreground">Эхлэх огноо</p>
                                     <p className="font-medium">
                                       {new Date(booking.startDate).toLocaleDateString()}
                                     </p>
                                   </div>
                                   <div>
-                                    <p className="text-sm text-muted-foreground">Total</p>
+                                    <p className="text-sm text-muted-foreground">Нийт</p>
                                     <p className="font-medium">
                                       ${booking.totalPrice.toLocaleString()}
                                     </p>
                                   </div>
                                 </div>
                                 <div>
-                                  <p className="text-sm text-muted-foreground">Tour</p>
+                                  <p className="text-sm text-muted-foreground">Аялал</p>
                                   <p className="font-medium">{getTourName(booking.tourId)}</p>
                                 </div>
                                 {booking.customer.specialRequests && (
                                   <div>
                                     <p className="text-sm text-muted-foreground">
-                                      Special Requests
+                                      Тусгай хүсэлт
                                     </p>
                                     <p className="font-medium">
                                       {booking.customer.specialRequests}
@@ -244,7 +251,7 @@ export default function AdminBookingsPage() {
                                         }
                                       >
                                         <CheckCircle className="mr-2 h-4 w-4" />
-                                        Confirm
+                                        Баталгаажуулах
                                       </Button>
                                       <Button
                                         variant="destructive"
@@ -254,7 +261,7 @@ export default function AdminBookingsPage() {
                                         }
                                       >
                                         <XCircle className="mr-2 h-4 w-4" />
-                                        Cancel
+                                        Цуцлах
                                       </Button>
                                     </>
                                   )}
@@ -266,7 +273,7 @@ export default function AdminBookingsPage() {
                                       }
                                     >
                                       <CheckCircle className="mr-2 h-4 w-4" />
-                                      Mark Completed
+                                      Дууссан гэж тэмдэглэх
                                     </Button>
                                   )}
                                 </div>

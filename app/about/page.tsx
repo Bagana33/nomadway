@@ -8,55 +8,55 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Mountain, Users, Award, Globe, Heart, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "About Us | NomadWay Travel",
-  description: "Learn about NomadWay Travel - your trusted partner for authentic Mongolian adventures since 2015.",
+  title: "Бидний тухай | NomadWay Аялал",
+  description: "2015 оноос хойш Монголын жинхэнэ аяллын таны найдвартай хамтрагч NomadWay Аяллын тухай.",
 }
 
 const stats = [
-  { value: "500+", label: "Happy Travelers" },
-  { value: "9+", label: "Years Experience" },
-  { value: "50+", label: "Destinations" },
-  { value: "98%", label: "Satisfaction Rate" },
+  { value: "500+", label: "Сэтгэл хангалуун аялагчид" },
+  { value: "9+", label: "Туршлагын жил" },
+  { value: "50+", label: "Чиглэлүүд" },
+  { value: "98%", label: "Сэтгэл ханамж" },
 ]
 
 const team = [
   {
     name: "Bat-Erdene Ganbold",
-    role: "Founder & CEO",
-    bio: "Born in the Gobi Desert, Bat-Erdene has been guiding travelers since 2008.",
+    role: "Үүсгэн байгуулагч, Гүйцэтгэх захирал",
+    bio: "Говь нутагт төрсөн Бат-Эрдэнэ 2008 оноос хойш аялагчдыг хөтөлж байна.",
   },
   {
     name: "Oyungerel Tsedev",
-    role: "Operations Manager",
-    bio: "With 12 years in tourism, Oyungerel ensures every trip runs smoothly.",
+    role: "Үйл ажиллагааны менежер",
+    bio: "Аялал жуулчлалын 12 жилийн туршлагатай Оюунгэрэл бүх аяллыг жигд явуулдаг.",
   },
   {
     name: "Munkh-Erdene Dorj",
-    role: "Lead Guide",
-    bio: "An expert in Mongolian wildlife and culture with 15 years of guiding experience.",
+    role: "Ахлах хөтөч",
+    bio: "Монголын байгаль, соёлын мэдлэгтэй, 15 жилийн туршлагатай хөтөч.",
   },
 ]
 
 const values = [
   {
     icon: Heart,
-    title: "Authentic Experiences",
-    description: "We create genuine connections with local communities and preserve traditional Mongolian culture.",
+    title: "Жинхэнэ туршлага",
+    description: "Орон нутгийн иргэдтэй бодит холбоо үүсгэж, уламжлалт соёлыг хадгална.",
   },
   {
     icon: Globe,
-    title: "Sustainable Tourism",
-    description: "We minimize our environmental impact and support local economies through responsible travel.",
+    title: "Тогтвортой аялал жуулчлал",
+    description: "Байгальд үзүүлэх нөлөөг багасгаж, орон нутгийн эдийн засгийг дэмжинэ.",
   },
   {
     icon: Award,
-    title: "Excellence in Service",
-    description: "Every journey is crafted with attention to detail and commitment to your satisfaction.",
+    title: "Үйлчилгээний шилдэг байдал",
+    description: "Аялал бүрийг нарийн төлөвлөж, таны сэтгэл ханамжийг эрхэмлэнэ.",
   },
   {
     icon: Users,
-    title: "Local Expertise",
-    description: "Our team of Mongolian guides brings unmatched knowledge and passion to every tour.",
+    title: "Орон нутгийн мэдлэг",
+    description: "Монгол хөтөч нарын мэдлэг, хүсэл тэмүүлэл аялал бүрт шингэнэ.",
   },
 ]
 
@@ -70,7 +70,7 @@ export default function AboutPage() {
           <div className="absolute inset-0">
             <Image
               src="/images/about-team.jpg"
-              alt="NomadWay Travel Team"
+              alt="NomadWay Аяллын баг"
               fill
               className="object-cover"
               priority
@@ -80,15 +80,15 @@ export default function AboutPage() {
           <div className="container relative mx-auto px-4">
             <div className="max-w-2xl">
               <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary-foreground/70">
-                About Us
+                Бидний тухай
               </span>
               <h1 className="mb-6 text-4xl font-bold text-primary-foreground md:text-5xl">
-                Your Gateway to Authentic Mongolia
+                Монголын жинхэнэ өнгийг мэдрэх гарц
               </h1>
               <p className="text-lg text-primary-foreground/80">
-                Founded in 2015, NomadWay Travel has been connecting travelers with the 
-                raw beauty and rich culture of Mongolia. We believe in travel that transforms 
-                both the traveler and the communities we visit.
+                2015 онд байгуулагдсан NomadWay Аялал нь аялагчдыг Монголын онгон байгаль,
+                баялаг соёлтой холбож ирсэн. Бид аялагч болон зочлох орон нутгийн хамт олныг
+                эерэгээр өөрчлөх аяллыг эрхэмлэдэг.
               </p>
             </div>
           </div>
@@ -113,25 +113,25 @@ export default function AboutPage() {
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center">
               <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-accent">
-                Our Story
+                Манай түүх
               </span>
               <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
-                From the Steppe to the World
+                Тал нутгаас дэлхийд
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  NomadWay Travel was born from a simple dream: to share the incredible beauty of 
-                  Mongolia with the world while preserving its unique culture and environment.
+                  NomadWay Аялал энгийн мөрөөдлөөс эхэлсэн: Монголын гайхамшигт үзэсгэлэн,
+                  өвөрмөц соёл, байгаль орчныг хадгалангаа дэлхийд таниулах.
                 </p>
                 <p>
-                  Our founder, Bat-Erdene, grew up as a nomad in the Gobi Desert. After studying 
-                  tourism abroad, he returned home with a vision to create a travel company that 
-                  would offer authentic experiences while supporting local communities.
+                  Үүсгэн байгуулагч Бат-Эрдэнэ Говьд нүүдэлчин ахуйд өссөн. Гадаадад аялал
+                  жуулчлалын чиглэлээр суралцсаны дараа орон нутгийн иргэдийг дэмжсэн,
+                  жинхэнэ туршлага өгөх аяллын компани байгуулах зорилгоор эх орондоо эргэн ирсэн.
                 </p>
                 <p>
-                  Today, we are proud to have hosted over 500 travelers from 40+ countries, 
-                  creating memories that last a lifetime while contributing to the sustainable 
-                  development of rural Mongolia.
+                  Өнөөдөр бид 40+ орны 500 гаруй аялагчийг хүлээн авч, насан туршийн дурсамж
+                  бүтээхээс гадна Монголын хөдөө орон нутгийн тогтвортой хөгжилд хувь нэмэр
+                  оруулж буйдаа бахархдаг.
                 </p>
               </div>
             </div>
@@ -143,10 +143,10 @@ export default function AboutPage() {
           <div className="container mx-auto px-4">
             <div className="mb-12 text-center">
               <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-accent">
-                Our Values
+                Бидний үнэт зүйл
               </span>
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                What Drives Us
+                Биднийг хөдөлгөгч зүйл
               </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -170,14 +170,14 @@ export default function AboutPage() {
           <div className="container mx-auto px-4">
             <div className="mb-12 text-center">
               <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-accent">
-                Our Team
+                Манай баг
               </span>
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                Meet the Experts
+                Мэргэжилтнүүдтэй танилц
               </h2>
               <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-                Our passionate team of Mongolian travel experts is dedicated to creating 
-                unforgettable experiences for every traveler.
+                Монгол аяллын мэргэжилтнүүдээс бүрдсэн манай баг аялагч бүрт мартагдашгүй
+                туршлага бүтээхэд зориулагдсан.
               </p>
             </div>
             <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
@@ -201,15 +201,15 @@ export default function AboutPage() {
         <section className="bg-primary py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 className="mb-4 text-3xl font-bold text-primary-foreground">
-              Ready to Start Your Adventure?
+              Аяллаа эхлүүлэхэд бэлэн үү?
             </h2>
             <p className="mx-auto mb-8 max-w-lg text-primary-foreground/80">
-              Join hundreds of satisfied travelers who have discovered Mongolia with NomadWay.
+              NomadWay-тай Монголыг нээсэн олон зуун сэтгэл хангалуун аялагчдын эгнээнд нэгдээрэй.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                 <Link href="/tours">
-                  Explore Tours
+                  Аяллуудыг үзэх
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -219,7 +219,7 @@ export default function AboutPage() {
                 size="lg"
                 className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
               >
-                <Link href="/contact">Contact Us</Link>
+                <Link href="/contact">Холбоо барих</Link>
               </Button>
             </div>
           </div>

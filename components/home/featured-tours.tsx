@@ -14,19 +14,19 @@ export function FeaturedTours() {
         <div className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>
             <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-accent">
-              Our Tours
+              Манай аяллууд
             </span>
             <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-              Popular Adventures
+              Алдартай адал явдлууд
             </h2>
             <p className="mt-3 max-w-xl text-muted-foreground">
-              Handcrafted journeys through Mongolia&apos;s most breathtaking landscapes, 
-              designed for unforgettable experiences.
+              Монголын хамгийн гайхамшигтай байгаль дундуур хөтлөх, 
+              мартагдашгүй дурсамж бүтээх аяллууд.
             </p>
           </div>
           <Button asChild variant="outline" className="shrink-0 bg-transparent">
             <Link href="/tours">
-              View All Tours
+              Бүх аяллыг үзэх
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
