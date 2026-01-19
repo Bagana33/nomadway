@@ -56,9 +56,10 @@ export default function AdminBookingsPage() {
   const [bookings, setBookings] = useState(mockBookings);
 
   const filteredBookings = bookings.filter((booking) => {
+    const customerName = `${booking.customer.firstName} ${booking.customer.lastName}`.trim();
     const matchesSearch =
-      booking.customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      booking.customerEmail.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      booking.customer.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
       booking.id.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus =
       statusFilter === "all" || booking.status === statusFilter;
@@ -142,9 +143,11 @@ export default function AdminBookingsPage() {
                         </TableCell>
                         <TableCell>
                           <div>
-                            <div className="font-medium">{booking.customerName}</div>
+                            <div className="font-medium">
+                              {booking.customer.firstName} {booking.customer.lastName}
+                            </div>
                             <div className="text-sm text-muted-foreground">
-                              {booking.customerEmail}
+                              {booking.customer.email}
                             </div>
                           </div>
                         </TableCell>
@@ -155,7 +158,7 @@ export default function AdminBookingsPage() {
                           {new Date(booking.startDate).toLocaleDateString()}
                         </TableCell>
                         <TableCell className="hidden lg:table-cell">
-                          {booking.numberOfGuests}
+                          {booking.numberOfPeople}
                         </TableCell>
                         <TableCell className="font-medium">
                           ${booking.totalPrice.toLocaleString()}
@@ -188,19 +191,21 @@ export default function AdminBookingsPage() {
                                 <div className="grid grid-cols-2 gap-4">
                                   <div>
                                     <p className="text-sm text-muted-foreground">Customer</p>
-                                    <p className="font-medium">{booking.customerName}</p>
+                                    <p className="font-medium">
+                                      {booking.customer.firstName} {booking.customer.lastName}
+                                    </p>
                                   </div>
                                   <div>
                                     <p className="text-sm text-muted-foreground">Email</p>
-                                    <p className="font-medium">{booking.customerEmail}</p>
+                                    <p className="font-medium">{booking.customer.email}</p>
                                   </div>
                                   <div>
                                     <p className="text-sm text-muted-foreground">Phone</p>
-                                    <p className="font-medium">{booking.customerPhone}</p>
+                                    <p className="font-medium">{booking.customer.phone}</p>
                                   </div>
                                   <div>
                                     <p className="text-sm text-muted-foreground">Guests</p>
-                                    <p className="font-medium">{booking.numberOfGuests}</p>
+                                    <p className="font-medium">{booking.numberOfPeople}</p>
                                   </div>
                                   <div>
                                     <p className="text-sm text-muted-foreground">Start Date</p>
@@ -219,12 +224,14 @@ export default function AdminBookingsPage() {
                                   <p className="text-sm text-muted-foreground">Tour</p>
                                   <p className="font-medium">{getTourName(booking.tourId)}</p>
                                 </div>
-                                {booking.specialRequests && (
+                                {booking.customer.specialRequests && (
                                   <div>
                                     <p className="text-sm text-muted-foreground">
                                       Special Requests
                                     </p>
-                                    <p className="font-medium">{booking.specialRequests}</p>
+                                    <p className="font-medium">
+                                      {booking.customer.specialRequests}
+                                    </p>
                                   </div>
                                 )}
                                 <div className="flex gap-2 pt-4">

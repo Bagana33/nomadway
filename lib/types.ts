@@ -66,7 +66,7 @@ export interface CustomerInfo {
   specialRequests?: string
 }
 
-export type BookingStatus = 'pending' | 'confirmed' | 'cancelled'
+export type BookingStatus = 'pending' | 'confirmed' | 'cancelled' | 'completed'
 
 // Testimonial Types
 export interface Testimonial {
