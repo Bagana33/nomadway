@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { mockBookings, mockTours } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
@@ -52,7 +51,6 @@ const statusIcons: Record<Booking["status"], React.ReactNode> = {
 const Loading = () => null;
 
 export default function AdminBookingsPage() {
-  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [bookings, setBookings] = useState(mockBookings);
