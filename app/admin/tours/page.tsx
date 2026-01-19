@@ -35,13 +35,11 @@ import { Switch } from "@/components/ui/switch";
 import { Search, Plus, Edit, Eye, Star, MapPin, Calendar, Users } from "lucide-react";
 import type { Tour } from "@/lib/types";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
 const Loading = () => null;
 
 export default function AdminToursPage() {
-  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [tours, setTours] = useState(mockTours);
