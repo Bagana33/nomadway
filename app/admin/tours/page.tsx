@@ -48,8 +48,8 @@ export default function AdminToursPage() {
 
   const filteredTours = tours.filter((tour) => {
     const matchesSearch =
-      tour.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tour.location.toLowerCase().includes(searchQuery.toLowerCase());
+      tour.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      tour.startLocation.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory =
       categoryFilter === "all" || tour.category === categoryFilter;
     return matchesSearch && matchesCategory;
@@ -221,10 +221,10 @@ export default function AdminToursPage() {
                               style={{ backgroundImage: `url(${tour.images[0]})` }}
                             />
                             <div>
-                              <div className="font-medium line-clamp-1">{tour.title}</div>
+                              <div className="font-medium line-clamp-1">{tour.name}</div>
                               <div className="flex items-center text-sm text-muted-foreground">
                                 <MapPin className="mr-1 h-3 w-3" />
-                                {tour.location}
+                                {tour.startLocation}
                               </div>
                             </div>
                           </div>
@@ -272,7 +272,7 @@ export default function AdminToursPage() {
                                 <DialogHeader>
                                   <DialogTitle>Edit Tour</DialogTitle>
                                   <DialogDescription>
-                                    Update tour details for {tour.title}
+                                    Update tour details for {tour.name}
                                   </DialogDescription>
                                 </DialogHeader>
                                 <form className="space-y-4">
@@ -281,7 +281,7 @@ export default function AdminToursPage() {
                                       <Label htmlFor={`edit-title-${tour.id}`}>Tour Title</Label>
                                       <Input
                                         id={`edit-title-${tour.id}`}
-                                        defaultValue={tour.title}
+                                        defaultValue={tour.name}
                                       />
                                     </div>
                                     <div className="space-y-2">

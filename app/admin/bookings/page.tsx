@@ -68,7 +68,7 @@ export default function AdminBookingsPage() {
 
   const getTourName = (tourId: string) => {
     const tour = mockTours.find((t) => t.id === tourId);
-    return tour?.title || "Unknown Tour";
+    return tour?.name || "Unknown Tour";
   };
 
   const updateBookingStatus = (bookingId: string, newStatus: Booking["status"]) => {
